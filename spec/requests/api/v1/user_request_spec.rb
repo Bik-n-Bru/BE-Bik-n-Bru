@@ -9,13 +9,13 @@ describe "Users API" do
     user = JSON.parse(response.body, symbolize_names: true)
   end
 
-  it "can create a user" do 
+  it "can create a user and allows empty string attributes" do 
     user_params = { 
                     data: {
                       athlete_id: '12345',
                       username: 'testcase',
                       token: '12345abcde',
-                      city: 'Denver',
+                      city: '',
                       state: 'Colorado'
                     }
                   }
@@ -71,8 +71,6 @@ describe "Users API" do
     user_params = { 
                     data: {
                       athlete_id: '12345',
-                      username: 'testcase',
-                      city: 'Denver'
                     }
                   }
     headers = {"CONTENT_TYPE" => "application/json"}
@@ -84,11 +82,11 @@ describe "Users API" do
 
     expect(User.all.count).to eq(0)
     expect(response.status).to eq(400)
-    
+
     expect(response_data).to have_key(:message)
     expect(response_data[:message]).to eq("Record is missing one or more attributes")
 
     expect(response_data).to have_key(:errors)
-    expect(response_data[:errors]).to eq(["Token can't be blank","State can't be blank"])
+    expect(response_data[:errors]).to eq(["Username can't be blank", "Token can't be blank"])
   end
 end
