@@ -9,14 +9,14 @@ describe "Users API" do
     user = JSON.parse(response.body, symbolize_names: true)
   end
 
-  it "can create a user and allows empty string attributes" do 
+  it "can create a user and allows empty string attributes for city/state" do 
     user_params = { 
                     data: {
                       athlete_id: '12345',
                       username: 'testcase',
                       token: '12345abcde',
                       city: '',
-                      state: 'Colorado'
+                      state: ''
                     }
                   }
     headers = {"CONTENT_TYPE" => "application/json"}
