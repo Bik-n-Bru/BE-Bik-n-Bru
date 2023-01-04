@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
+gem 'faraday'
 gem 'simplecov', require: false, group: :test
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -38,7 +39,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'shoulda-matchers'
-  gem 'figaro'
 end
 
 group :development do
@@ -46,7 +46,6 @@ group :development do
 end
 
 group :test do 
-  gem 'simplecov'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
