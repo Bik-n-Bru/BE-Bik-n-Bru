@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :city
       t.string :state
+      t.string :athlete_id
+      t.string :token
 
       t.timestamps
     end
