@@ -120,16 +120,18 @@ describe "Users API" do
     previous_state = User.last.state
 
     user_params = {
-      city: "Not a real city"
-      state: "Not a state"
-    }
+                    data: {
+                      city: "Not a real city",
+                      state: "Not a state"
+                    }
+                  }
     headers = {"CONTENT_TYPE" => "application/json"}
 
     patch "/api/v1/users/#{user_id}", headers: headers, params: JSON.generate(user: user_params)
 
     user = User.find(user_id)
 
-    expect(reponse).to be_successful
+    expect(response).to be_successful
     expect(user.city).to_not eq(previous_city)
     expect(user.city).to eq("Not a real city")
     expect(user.state).to_not eq(previous_state)

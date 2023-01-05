@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
-      resources :users, only: [:create]
-        get '/users/:id', to: 'users#show'
+      resources :users, only: [:create, :show, :update]
     end
   end
 end
