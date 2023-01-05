@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2023_01_04_142905) do
     t.string "username"
     t.string "city"
     t.string "state"
+    t.string "athlete_id"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
