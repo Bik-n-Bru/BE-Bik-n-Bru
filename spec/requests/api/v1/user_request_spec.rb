@@ -1,12 +1,13 @@
 require "rails_helper"
 
 describe "Users API" do 
-  xit "can find a user by their strava athlete_id and returns a single user" do 
+  it "can find a user by their strava athlete_id and returns a single user" do 
     athlete_id = create(:user).athlete_id
 
     get "/api/v1/users/#{athlete_id}"
 
     user = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to be_successful
   end
 
   it "can create a user and allows empty string attributes for city/state" do 
