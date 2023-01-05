@@ -1,6 +1,9 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    user = User.new(user_params)
+    user = User.find_or_create_by(athlete_id: user_params[:athlete_id])
+    user.username = user_params[:username]
+    user.token = user_params[:token]
+    user.athlete_id = user_params[:athlete_id]
     if user.save 
       render json: UserSerializer.new(user), status: :created
     else 

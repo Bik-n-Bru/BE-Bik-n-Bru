@@ -66,9 +66,7 @@ describe "Users API" do
                     data: {
                       athlete_id: '12345',
                       username: 'testcase',
-                      token: '12345abcde',
-                      city: '',
-                      state: ''
+                      token: '12345abcde'
                     }
                   }
     headers = {"CONTENT_TYPE" => "application/json"}
@@ -94,11 +92,7 @@ describe "Users API" do
                     data: {
                       athlete_id: '12345',
                       username: 'testcase',
-                      token: '12345abcde',
-                      city: 'Denver',
-                      state: 'Colorado',
-                      total_mileage: '8435093124',
-                      date_registered: '12-12-2022'
+                      token: '12345abcde'
                     }
                   }
     headers = {"CONTENT_TYPE" => "application/json"}
