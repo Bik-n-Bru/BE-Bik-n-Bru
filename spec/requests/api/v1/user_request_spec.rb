@@ -50,6 +50,8 @@ describe "Users API" do
 
     expect(User.all.count).to eq(1)
     expect(response).to be_successful 
+    expect(response.status).to eq(201)
+
     expect(created_user.username).to eq(user_params[:data][:username])
     expect(created_user.city).to eq(user_params[:data][:city])
     expect(created_user.state).to eq(user_params[:data][:state])
