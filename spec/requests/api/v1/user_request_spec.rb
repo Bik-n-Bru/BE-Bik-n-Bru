@@ -113,4 +113,26 @@ describe "Users API" do
     expect(response_data).to have_key(:errors)
     expect(response_data[:errors]).to eq(["Username can't be blank", "Token can't be blank"])
   end
+
+  it "can edit an existing user" do 
+    user_id = create(:user).id
+    previous_city = User.last.city
+    previous_state = User.last.state
+
+    user_params = {
+      city: "Not a real city"
+      state: "Not a state"
+    }
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    patch "/api/v1/users/#{user_id}", headers: headers, params: JSON.generate(user: user_params)
+
+    user = User.find(user_id)
+
+    expect(reponse).to be_successful
+    expect(user.city).to_not eq(previous_city)
+    expect(user.city).to eq("Not a real city")
+    expect(user.state).to_not eq(previous_state)
+    expect(user.state).to eq("Not a state")
+  end
 end
