@@ -9,7 +9,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    user = User.find_by_athlete_id(params[:id]) 
+    if params[:q] == "athlete_id"
+      user = User.find_by_athlete_id(params[:id]) 
+    else
+      user = User.find(params[:id])
+    end
     render json: UserSerializer.new(user), status: 200
   end
 
