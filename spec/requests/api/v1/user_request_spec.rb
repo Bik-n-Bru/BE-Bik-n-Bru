@@ -1,12 +1,34 @@
 require "rails_helper"
 
 describe "Users API" do 
-  xit "can find a user by their strava athlete_id and returns a single user" do 
-    athlete_id = create(:user).athlete_id
-
+  it "can find a user by their strava athlete_id and returns a single user" do 
+    athlete_id = 22
+    athlete = create(:user, athlete_id: athlete_id)
+    
     get "/api/v1/users/#{athlete_id}"
+ 
+    expect(response).to be_successful
+    expect(response.status).to eq(200)
 
-    user = JSON.parse(response.body, symbolize_names: true)
+    response_body = JSON.parse(response.body, symbolize_names: true)
+
+    user = response_body[:data]
+   
+    expect(user[:attributes]).to have_key(:username)
+    expect(user[:attributes]).to have_key(:token)
+    expect(user[:attributes]).to have_key(:athlete_id)
+    expect(user[:attributes]).to have_key(:city)
+    expect(user[:attributes]).to have_key(:state)
+    expect(user[:attributes][:username]).to be_a(String)
+    expect(user[:attributes][:username]).to eq(athlete.username)
+    expect(user[:attributes][:token]).to be_a(String)
+    expect(user[:attributes][:token]).to eq(athlete.token)
+    expect(user[:attributes][:athlete_id]).to be_a(String)
+    expect(user[:attributes][:athlete_id]).to eq(athlete.athlete_id)
+    expect(user[:attributes][:city]).to be_a(String)
+    expect(user[:attributes][:city]).to eq(athlete.city)
+    expect(user[:attributes][:state]).to be_a(String)
+    expect(user[:attributes][:state]).to eq(athlete.state)
   end
 
   it "can create a user and allows empty string attributes for city/state" do 
