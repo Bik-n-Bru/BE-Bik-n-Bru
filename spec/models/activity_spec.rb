@@ -18,7 +18,7 @@ RSpec.describe Activity, type: :model do
     let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json')}
     let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json')}
 
-    describe "get_attributes" do 
+    describe "#get_attributes" do 
       it "should update the distance, calories, and num_drinks attributes for the instance of activity" do 
         user = create(:user)
         user_id = user.id
@@ -51,10 +51,21 @@ RSpec.describe Activity, type: :model do
       end
     end
 
-    describe "calculate_num_drinks" do 
+    describe "#calculate_num_drinks" do 
       it "should return the rounded number of drinks based on the activities attributes" do 
+        activity_1 = create(:activity, calories: 980, drink_type: "Pilsner")
+        activity_2 = create(:activity, calories: 402, drink_type: "IPA")
+
+        expect(activity_1.calculate_num_drinks).to eq(4)
+        expect(activity_2.calculate_num_drinks).to eq(1)
+      end
+    end
+
+    describe "#service" do 
+      it "returns a new instance of StravaService" do 
         activity = create(:activity)
-        require 'pry'; binding.pry
+
+        expect(activity.service).to be_an_instance_of(StravaService)
       end
     end
   end
