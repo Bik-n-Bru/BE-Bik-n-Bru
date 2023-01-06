@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe "Activity API" do
-  let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json')}
-  let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json')}
-  let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_price.json')}
+  let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json') }
+  let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json') }
+  let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_price.json') }
 
   it "can create an activity" do
-    user = create(:user)
+    user = create(:user, state: "Colorado")
     user_id = user.id
     user_token = user.token
 
@@ -17,6 +17,10 @@ describe "Activity API" do
     stub_request(:get, "https://www.strava.com/activities/154504250376823")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
+    
+    stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+      .with(headers: {"authorization" => "apikey #{ENV['gas_key']}"})
+      .to_return(status: 200, body: response_body_3)
 
     activity_params = {
                         data: {
@@ -40,7 +44,7 @@ describe "Activity API" do
     expect(new_activity.calories).to eq(870)
     expect(new_activity.drink_type).to eq("IPA")
     expect(new_activity.num_drinks).to eq(3)
-    expect(new_activity.)
+    expect(new_activity.dollars_saved).to eq()
   end
 
   it "returns an error if there are missing attributes" do 
@@ -55,6 +59,10 @@ describe "Activity API" do
     stub_request(:get, "https://www.strava.com/activities/154504250376823")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
+
+    stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+      .with(headers: {"authorization" => "apikey #{ENV['gas_key']}"})
+      .to_return(status: 200, body: response_body_3)
 
     activity_params = {
                         data: {
@@ -91,6 +99,10 @@ describe "Activity API" do
     stub_request(:get, "https://www.strava.com/activities/154504250376823")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
+    
+      stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+      .with(headers: {"authorization" => "apikey #{ENV['gas_key']}"})
+      .to_return(status: 200, body: response_body_3)
 
     activity_params = {
                         data: {
