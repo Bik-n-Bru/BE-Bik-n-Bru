@@ -81,6 +81,23 @@ RSpec.describe Activity, type: :model do
         user = create(:user)
 
         expect(user.badges).to be_empty
+
+        5.times do 
+          create(:activity, user: user, distance: 5)
+        end
+
+        expect(user.badges.count).to eq(1)
+
+        create(:activity, user: user, distance: 90)
+
+        expect(user.badges.count).to eq(2)
+
+        4.times do 
+          create(:activity, user: user, distance: 5)
+        end
+
+        expect(user.badges.count).to eq(3)
+        expect(user.badges.pluck(:title)).to eq(["Completed 1 Activity", "Cycled 100 miles", "Visited 10 breweries"])
       end
     end
   end
