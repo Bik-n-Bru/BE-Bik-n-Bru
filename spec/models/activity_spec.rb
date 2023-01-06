@@ -41,7 +41,6 @@ RSpec.describe Activity, type: :model do
           .to_return(status: 200, body: response_body_2)
 
         stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
-          .with(headers: {"authorization" => "apikey #{ENV['gas_key']}"})
           .to_return(status: 200, body: response_body_3)
         
         activity = Activity.new(activity_params)
