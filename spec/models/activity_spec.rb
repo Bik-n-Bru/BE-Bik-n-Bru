@@ -19,10 +19,11 @@ RSpec.describe Activity, type: :model do
   describe "Instance Methods" do 
     let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json')}
     let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json')}
+    let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_price.json') }
 
     describe "#get_attributes" do 
       it "should update the distance, calories, and num_drinks attributes for the instance of activity" do 
-        user = create(:user)
+        user = create(:user, state: "Colorado")
         user_id = user.id
         user_token = user.token
         activity_params =  {
@@ -38,6 +39,10 @@ RSpec.describe Activity, type: :model do
         stub_request(:get, "https://www.strava.com/activities/154504250376823")
           .with(headers: {"Authorization" => "Bearer #{user_token}"})
           .to_return(status: 200, body: response_body_2)
+
+        stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+          .with(headers: {"authorization" => "apikey #{ENV['gas_key']}"})
+          .to_return(status: 200, body: response_body_3)
         
         activity = Activity.new(activity_params)
 
@@ -63,11 +68,11 @@ RSpec.describe Activity, type: :model do
       end
     end
 
-    describe "#service" do 
+    describe "#strava_service" do 
       it "returns a new instance of StravaService" do 
         activity = create(:activity)
 
-        expect(activity.service).to be_an_instance_of(StravaService)
+        expect(activity.strava_service).to be_an_instance_of(StravaService)
       end
     end
   end

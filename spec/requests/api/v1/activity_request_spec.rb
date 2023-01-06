@@ -44,11 +44,12 @@ describe "Activity API" do
     expect(new_activity.calories).to eq(870)
     expect(new_activity.drink_type).to eq("IPA")
     expect(new_activity.num_drinks).to eq(3)
-    expect(new_activity.dollars_saved).to eq()
+    expect(new_activity.dollars_saved).to eq(2.44)
+    expect(new_activity.lbs_carbon_saved).to eq(15.71)
   end
 
   it "returns an error if there are missing attributes" do 
-    user = create(:user)
+    user = create(:user, state: "Colorado")
     user_id = user.id
     user_token = user.token
 
@@ -88,7 +89,7 @@ describe "Activity API" do
   end
 
   it "catches when there's no user ID and doesn't make the strava API call, but returns an error" do 
-    user = create(:user)
+    user = create(:user, state: "Colorado")
     user_id = user.id
     user_token = user.token
 
@@ -124,6 +125,6 @@ describe "Activity API" do
     expect(response_data[:message]).to eq("Record is missing one or more attributes")
 
     expect(response_data).to have_key(:errors)
-    expect(response_data[:errors]).to eq(["User must exist", "User can't be blank", "Distance can't be blank", "Calories can't be blank", "Num drinks can't be blank"])
+    expect(response_data[:errors]).to eq(["User must exist", "User can't be blank", "Distance can't be blank", "Calories can't be blank", "Num drinks can't be blank", "Dollars saved can't be blank", "Lbs carbon saved can't be blank"])
   end
 end

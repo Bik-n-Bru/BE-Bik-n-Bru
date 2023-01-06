@@ -4,10 +4,22 @@ class Activity < ApplicationRecord
   validates :user_id, :distance, :calories, :num_drinks, :drink_type, :brewery_name, :dollars_saved, :lbs_carbon_saved, presence: true
 
   def get_attributes
-    strava_activity = service.get_latest_activity(user.token)
+    update_from_strava_service
+    update_from_gas_service
+  end
+
+  def update_from_strava_service
+    strava_activity = strava_service.get_latest_activity(user.token)
     self.distance = (strava_activity.distance_in_meters / 1609.344).round(6) 
     self.calories = strava_activity.calories 
     self.num_drinks = calculate_num_drinks
+  end
+
+  def update_from_gas_service
+    abbreviation = StateSymbol.convert(user.state)
+    gas_price = gas_service.get_gas_price(abbreviation)
+    self.dollars_saved = ((self.distance / 22) * gas_price).round(2) 
+    self.lbs_carbon_saved = (distance * 0.9).round(2)
   end
 
   def calculate_num_drinks
@@ -20,7 +32,11 @@ class Activity < ApplicationRecord
     (self.calories / beer_calories).round unless drink_type.nil?
   end
 
-  def service 
+  def strava_service 
     StravaService.new
+  end
+
+  def gas_service
+    GasService.new
   end
 end
