@@ -26,3 +26,5 @@
 /coverage
 # Ignore application.yml with api secrets in it
 /config/application.yml
+# Ignore application configuration
+/config/application.yml
