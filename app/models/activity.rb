@@ -1,7 +1,16 @@
 class Activity < ApplicationRecord
   belongs_to :user
-
-  validates :user_id, :distance, :calories, :num_drinks, :drink_type, :brewery_name, :dollars_saved, :lbs_carbon_saved, presence: true
+  validates :user_id, 
+            :distance, 
+            :calories, 
+            :num_drinks, 
+            :drink_type, 
+            :brewery_name, 
+            :dollars_saved, 
+            :lbs_carbon_saved, 
+            presence: true
+  
+  after_save :create_badges
 
   def get_attributes
     update_from_strava_service
@@ -38,5 +47,9 @@ class Activity < ApplicationRecord
 
   def gas_service
     GasService.new
+  end
+
+  def create_badges
+    user.create_badges
   end
 end

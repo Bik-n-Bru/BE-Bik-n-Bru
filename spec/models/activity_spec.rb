@@ -75,5 +75,13 @@ RSpec.describe Activity, type: :model do
         expect(activity.strava_service).to be_an_instance_of(StravaService)
       end
     end
+
+    describe "#create_badges" do 
+      it "will create badges for the user if they've earned them" do 
+        user = create(:user)
+
+        expect(user.badges).to be_empty
+      end
+    end
   end
 end
