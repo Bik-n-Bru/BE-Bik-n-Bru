@@ -12,7 +12,7 @@ describe "Open Brewery Api" do
       response_body = JSON.parse(response.body, symbolize_names: true)
       breweries = response_body[:data]
       
-      expect(breweries.count).to eq(20)
+      expect(breweries.count).to eq(50)
 
       breweries.each do |brewery|
         expect(brewery).to have_key(:id)

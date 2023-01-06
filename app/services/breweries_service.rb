@@ -13,6 +13,6 @@ class BreweriesService
 
   def self.conn(city, state)
     Faraday.new(url: "https://api.openbrewerydb.org/", 
-      params: { "by_city": city, "by_state": state })
+      params: { by_city: city, by_state: state, per_page: 50 })
   end
 end
