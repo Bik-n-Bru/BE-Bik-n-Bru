@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_04_142905) do
+ActiveRecord::Schema.define(version: 2023_01_06_181312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2023_01_04_142905) do
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
+  create_table "badges", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_badges_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "city"
@@ -38,4 +46,5 @@ ActiveRecord::Schema.define(version: 2023_01_04_142905) do
   end
 
   add_foreign_key "activities", "users"
+  add_foreign_key "badges", "users"
 end
