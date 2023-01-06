@@ -4,4 +4,6 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show, :update]
     end
   end
+  
+  get 'api/v1/breweries/:user_id', to: 'api/v1/breweries#search'
 end
