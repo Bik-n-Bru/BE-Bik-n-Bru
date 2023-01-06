@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 06 Jan 2023 16:23:00 GMT
+      - Fri, 06 Jan 2023 17:22:11 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -55,15 +55,15 @@ http_interactions:
       Cf-Cache-Status:
       - HIT
       Age:
-      - '60715'
+      - '64266'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=UEVa%2F9U31kwH83rpH4gilDaiIy2QOG%2FSgGKHIyG%2FgYxASDDRP7rOnjy3Iq8h20B3Y0uldGbxiChePXfnbstMquLXH81EFcN5Ki0%2B3yYfr%2BnHQdASuVqXEzWhvh0vbktGGmbyBhnK1ik%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=7BQj7%2FApexJtd%2BEnii8n%2FdyV17K%2FQ9Mt6fsvJD%2B%2Bw2I2RfoIClrsZokBU%2BJwZIU4l%2FcuR1Boy%2FuQG3Yn%2F2CjfNy0qVIu1xy2H8NklwEcMHTpRn%2FW%2BoVqmbf6GrIalyid4hhzeTYzKlI%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 7855cbb49986290e-DEN
+      - 78562266396d1f55-DEN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -111,5 +111,5 @@ http_interactions:
         States","longitude":"-105.0024095","latitude":"39.7825168","phone":"4704400420","website_url":"http://www.facebook.com/BurgundianBrewing","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"burns-family-artisan-ales-denver","name":"Burns
         Family Artisan Ales","brewery_type":"planning","street":null,"address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80219-1655","country":"United
         States","longitude":null,"latitude":null,"phone":"2482242697","website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"}]'
-  recorded_at: Fri, 06 Jan 2023 16:23:00 GMT
+  recorded_at: Fri, 06 Jan 2023 17:22:11 GMT
 recorded_with: VCR 6.1.0
