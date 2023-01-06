@@ -35,7 +35,7 @@ describe "Activity API" do
     expect(Activity.all.count).to eq(1)
     expect(new_activity.user_id).to eq(user_id)
     expect(new_activity.brewery_name).to eq("Name")
-    expect(new_activity.distance).to eq(17.459909130676845)
+    expect(new_activity.distance).to eq(17.459909)
     expect(new_activity.calories).to eq(870)
     expect(new_activity.drink_type).to eq("IPA")
     expect(new_activity.num_drinks).to eq(3)

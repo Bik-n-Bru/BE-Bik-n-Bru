@@ -5,7 +5,7 @@ class Activity < ApplicationRecord
 
   def get_attributes
     strava_activity = service.get_latest_activity(user.token)
-    self.distance = strava_activity.distance_in_meters / 1609.344 
+    self.distance = (strava_activity.distance_in_meters / 1609.344).round(6) 
     self.calories = strava_activity.calories 
     self.num_drinks = calculate_num_drinks
   end

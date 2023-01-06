@@ -45,7 +45,7 @@ RSpec.describe Activity, type: :model do
 
         activity.get_attributes
 
-        expect(activity.distance).to eq(17.459909130676845)
+        expect(activity.distance).to eq(17.459909)
         expect(activity.calories).to eq(870)
         expect(activity.num_drinks).to eq(3)
       end
