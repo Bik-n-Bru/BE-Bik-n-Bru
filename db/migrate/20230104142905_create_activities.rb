@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :brewery_name
       t.float :distance
       t.integer :calories
-      t.float :num_drinks
+      t.integer :num_drinks
       t.string :drink_type
       t.references :user, foreign_key: true
 

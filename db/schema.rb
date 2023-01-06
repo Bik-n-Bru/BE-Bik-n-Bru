@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2023_01_04_142905) do
     t.string "brewery_name"
     t.float "distance"
     t.integer "calories"
-    t.float "num_drinks"
+    t.integer "num_drinks"
     t.string "drink_type"
     t.bigint "user_id"
     t.datetime "created_at", null: false
