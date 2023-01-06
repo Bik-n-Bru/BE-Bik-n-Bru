@@ -7,7 +7,7 @@ describe 'Breweries Service' do
       city = "denver"
       state = "colorado"
 
-      results = BreweriesService.search_by_city_state(city, state)
+      results = BreweriesService.get_url("breweries?", city, state)
       first_brewery = results.first
 
       expect(first_brewery).to have_key(:id)

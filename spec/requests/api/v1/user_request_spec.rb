@@ -61,7 +61,7 @@ describe "Users API" do
     expect(user[:attributes][:state]).to eq(athlete.state)
   end
 
-  it "can create a user and allows empty string attributes for city/state" do 
+  it "can create a user" do 
     user_params = { 
                     data: {
                       athlete_id: '12345',
@@ -78,7 +78,7 @@ describe "Users API" do
 
     expect(User.all.count).to eq(1)
     expect(response).to be_successful 
-    expect(response.status).to eq(201)
+    expect(response.status).to eq(200)
 
     expect(created_user.username).to eq(user_params[:data][:username])
     expect(created_user.city).to eq(user_params[:data][:city])
@@ -136,6 +136,26 @@ describe "Users API" do
 
     expect(response_data).to have_key(:errors)
     expect(response_data[:errors]).to eq(["Username can't be blank", "Token can't be blank"])
+  end
+
+  it "doesn't create a user if that user's athlete_id already exists" do 
+    athlete_id = 1344556
+    athlete = create(:user, athlete_id: athlete_id)
+    user_params = { 
+                    data: {
+                      athlete_id: '1344556',
+                      username: 'testcase',
+                      token: '12345abcde'
+                    }
+                  }
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    expect(User.all.count).to eq(1)
+
+    post "/api/v1/users", headers: headers, params: JSON.generate(user: user_params)
+
+    expect(User.all.count).to eq(1)
+    expect(response).to be_successful 
   end
 
   it "can edit an existing user" do 

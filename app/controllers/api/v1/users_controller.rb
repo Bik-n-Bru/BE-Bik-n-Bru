@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     user.token = user_params[:token]
     user.athlete_id = user_params[:athlete_id]
     if user.save 
-      render json: UserSerializer.new(user), status: :created
+      render json: UserSerializer.new(user)
     else 
       render json: ErrorSerializer.missing_attributes(user.errors.full_messages), status: :bad_request
     end
