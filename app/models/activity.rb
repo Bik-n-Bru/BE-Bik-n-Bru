@@ -17,7 +17,7 @@ class Activity < ApplicationRecord
     when "Pilsner"
       beer_calories = 250.0
     end
-    (self.calories / beer_calories).round
+    (self.calories / beer_calories).round unless drink_type.nil?
   end
 
   def service 
