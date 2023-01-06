@@ -6,7 +6,6 @@ RSpec.describe Activity, type: :model do
   end
 
   describe "Validations" do
-    it { should validate_presence_of(:brewery_id)}
     it { should validate_presence_of(:user_id)}
     it { should validate_presence_of(:distance)}
     it { should validate_presence_of(:calories)}

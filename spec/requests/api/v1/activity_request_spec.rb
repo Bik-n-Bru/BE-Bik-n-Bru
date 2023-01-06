@@ -1,21 +1,24 @@
 require 'rails_helper'
 
 describe "Activity API" do
+  let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json')}
+  let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json')}
+
   it "can create an activity" do
-    user_id = create(:user).id
-    user_token = user_id.token
+    user = create(:user)
+    user_id = user.id
+    user_token = user.token
 
     stub_request(:get, "https://www.strava.com/athlete/activites?per_page=1")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
-      .to_return(status: 200, body: File.read("spec/fixtures/sample_json/strava_activities.json"))
+      .to_return(status: 200, body: response_body_1)
     
     stub_request(:get, "https://www.strava.com/activities/154504250376823")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
-      .to_return(status: 200, body: File.read("spec/fixtures/strava_activity.json"))
+      .to_return(status: 200, body: response_body_2)
 
     activity_params = {
                         data: {
-                          brewery_id: "1234",
                           brewery_name: "Name",
                           drink_type: "IPA",
                           user_id: "#{user_id}"
