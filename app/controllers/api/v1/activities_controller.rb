@@ -1,7 +1,7 @@
 class Api::V1::ActivitiesController < ApplicationController
   def create
     activity = Activity.new(activity_params)
-    activity.get_attributes
+    activity.get_attributes if activity_params[:user_id]
     if activity.save
       render json: ActivitySerializer.new(activity)
     else 
