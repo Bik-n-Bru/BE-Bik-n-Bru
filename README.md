@@ -6,16 +6,24 @@
  
 This repo is the Back End portion of the Bīk-n-Brü project built by Mod 3 students at [Turing School of Software and Design](https://turing.edu/). 
 
-The purpose of this app is to encourage people to ride their bikes to bars to decrease their carbon footprint by gamifying the exercise/bar experience
+The purpose of this app is to encourage people to ride their bikes to bars to decrease their carbon footprint by gamifying the exercise/bar experience!
 
 Visit our Front End Site!
-  - *[Bīk-n-Brü](https://fe-bik-n-bru.herokuapp.com/)*.
+  - *[Bīk-n-Brü](https://fe-bik-n-bru.herokuapp.com/)*
 <br>
 
 # Table of Contents
 - [Setup](#setup)
 - [Built With](#built-with)
 - [Endpoints](#endpoints)
+
+
+## Built With
+  - ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white) **2.7.4**
+  - ![Rails](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white) **5.2.8.1**
+  - <img src="app/images/rspec_badge.png" alt="RSpec" height="30"> **3.12.0**
+  - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+  - ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
 
 ## Setup
   If you would like to demo this API on your local machine:
@@ -30,12 +38,7 @@ Visit our Front End Site!
 You should now be able to hit the API endpoints using Postman or a similar tool.<br>
 Default host is <code>http://localhost:3000</code>
 
-## Built With:
-  - ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white) **2.7.4**
-  - ![Rails](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white) **5.2.8.1**
-  - <img src="app/images/rspec_badge.png" alt="RSpec" height="30"> **3.12.0**
-  - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-  - ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
+
 
 
   <!-- A user signs in using their [Strava](https://www.strava.com/) authentication. If they don't currently have a Strava Login there will be a link to take them to the Strava 
@@ -72,6 +75,128 @@ This endpoint is used to our OAuth and to collect user data that can be used for
           }
       }</code>
 
-- Find User by
+- Find Users latest activity by Strava athlete id/activity id
+  - GET "/athlete/activites?per_page=1"
+  - GET "/activities/<activity_id>
+    ```
+    [ {"resource_state" : 2,
+    "athlete" : {
+      "id" : 134815,
+      "resource_state" : 1
+    },
+    "name" : "Happy Friday",
+    "distance" : 24931.4,
+    "moving_time" : 4500,
+    "elapsed_time" : 4500,
+    "total_elevation_gain" : 0,
+    "type" : "Ride",
+    "sport_type" : "MountainBikeRide",
+    "workout_type" : null,
+    "id" : 154504250376823,
+    "external_id" : "garmin_push_12345678987654321",
+    "upload_id" : 987654321234567891234,
+    "start_date" : "2018-05-02T12:15:09Z",
+    "start_date_local" : "2018-05-02T05:15:09Z",
+    "timezone" : "(GMT-08:00) America/Los_Angeles",
+    "utc_offset" : -25200,
+    "start_latlng" : null,
+    "end_latlng" : null,
+    "location_city" : null,
+    "location_state" : null,
+    "location_country" : "United States",
+    "achievement_count" : 0,
+    "kudos_count" : 3,
+    "comment_count" : 1,
+    "athlete_count" : 1,
+    "photo_count" : 0,
+    "map" : {
+      "id" : "a12345678987654321",
+      "summary_polyline" : null,
+      "resource_state" : 2
+    },
+    "trainer" : true,
+    "commute" : false,
+    "manual" : false,
+    "private" : false,
+    "flagged" : false,
+    "gear_id" : "b12345678987654321",
+    "from_accepted_tag" : false,
+    "average_speed" : 5.54,
+    "max_speed" : 11,
+    "average_cadence" : 67.1,
+    "average_watts" : 175.3,
+    "weighted_average_watts" : 210,
+    "kilojoules" : 788.7,
+    "device_watts" : true,
+    "has_heartrate" : true,
+    "average_heartrate" : 140.3,
+    "max_heartrate" : 178,
+    "max_watts" : 406,
+    "pr_count" : 0,
+    "total_photo_count" : 1,
+    "has_kudoed" : false,
+    "suffer_score" : 82
+    }]
+  ```
+
+
+
+# Contributors
+
+### Project Team:
+<table>
+  <tr>
+    <td><img src="https://avatars.githubusercontent.com/u/101589894?v=4" width=auto height=110px></td>
+    <td><img src="https://avatars.githubusercontent.com/u/108035840?v=4" width=auto height=110px></td>
+    <td><img src="https://avatars.githubusercontent.com/u/108554663?v=4" width=auto height=110px></td>
+    <td><img src="https://avatars.githubusercontent.com/u/108249540?v=4" width=auto height=110px></td>
+    <td><img src="https://avatars.githubusercontent.com/u/102780642?s=400&u=caf69a9ee867dd111a5c160cf96d6a8ca33add7c&v=4" width=auto height=110px></td>
+  </tr>
+  <tr>
+    <td><strong>Amanda Ross</strong></td>
+    <td><strong>Yuji Kosakowski</strong></td>
+    <td><strong>Rich Kaht</strong></td>
+    <td><strong>Gabe Nuñez</strong></td>
+    <td><strong>Annie Pulzone</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><a href="https://github.com/amikaross">GitHub</a><br>
+      <a href="https://www.linkedin.com/in/amanda-ross-2a62093a/">LinkedIn</a></div>
+    </td>
+    <td>
+      <div align="center"><a href="https://github.com/Yuji3000">GitHub</a><br>
+      <a href="https://www.linkedin.com/in/yujikosa/">LinkedIn</a></div>
+    </td>
+    <td>
+      <div align="center"><a href="https://github.com/Freeing3092">GitHub</a></div>
+    </td>
+    <td>
+      <div align="center"><a href="https://github.com/MisterJackpots">GitHub</a><br>
+      <a href="https://www.linkedin.com/in/gabriel-c-nunez/">LinkedIn</a></div>
+    </td>
+    <td>
+      <div align="center"><a href="https://github.com/ajpulzone">GitHub </a><br>
+      <a href="https://www.linkedin.com/in/annie-pulzone/">LinkedIn</a></div>
+    </td>
+  </tr>
+</table>
+
+### Project Manager:
+<table>
+  <tr>
+    <td><img src="https://avatars.githubusercontent.com/u/3011748?v=4" width=110px height=auto></td>
+  </tr>
+  <tr>
+    <td><strong>Mike Dao</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center"><a href="https://https://github.com/mikedao">GitHub</a><br>
+      <a href="https://www.linkedin.com/in/michaeldao/">LinkedIn</a></div>
+    </td>
+  </tr>
+</table>
+
 
 
