@@ -12,6 +12,8 @@ RSpec.describe Activity, type: :model do
     it { should validate_presence_of(:num_drinks)}
     it { should validate_presence_of(:drink_type)}
     it { should validate_presence_of(:brewery_name)}
+    it { should validate_presence_of(:dollars_saved)}
+    it { should validate_presence_of(:lbs_carbon_saved)}
   end
 
   describe "Instance Methods" do 

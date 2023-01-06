@@ -6,6 +6,8 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.integer :calories
       t.integer :num_drinks
       t.string :drink_type
+      t.float :dollars_saved
+      t.integer :lbs_carbon_saved
       t.references :user, foreign_key: true
 
       t.timestamps

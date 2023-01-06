@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "Activity API" do
   let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json')}
   let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json')}
+  let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_price.json')}
 
   it "can create an activity" do
     user = create(:user)
@@ -39,6 +40,7 @@ describe "Activity API" do
     expect(new_activity.calories).to eq(870)
     expect(new_activity.drink_type).to eq("IPA")
     expect(new_activity.num_drinks).to eq(3)
+    expect(new_activity.)
   end
 
   it "returns an error if there are missing attributes" do 

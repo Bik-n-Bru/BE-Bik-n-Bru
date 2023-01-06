@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2023_01_06_181312) do
     t.integer "calories"
     t.integer "num_drinks"
     t.string "drink_type"
+    t.float "dollars_saved"
+    t.integer "lbs_carbon_saved"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

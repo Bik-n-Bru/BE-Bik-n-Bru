@@ -1,7 +1,7 @@
 class Activity < ApplicationRecord
   belongs_to :user
 
-  validates :user_id, :distance, :calories, :num_drinks, :drink_type, :brewery_name, presence: true
+  validates :user_id, :distance, :calories, :num_drinks, :drink_type, :brewery_name, :dollars_saved, :lbs_carbon_saved, presence: true
 
   def get_attributes
     strava_activity = service.get_latest_activity(user.token)
