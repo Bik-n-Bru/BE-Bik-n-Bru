@@ -10,11 +10,11 @@ describe "Activity API" do
     user_id = user.id
     user_token = user.token
 
-    stub_request(:get, "https://www.strava.com/athlete/activites?per_page=1")
+    stub_request(:get, "https://www.strava.com/api/v3/athlete/activities?per_page=1")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_1)
     
-    stub_request(:get, "https://www.strava.com/activities/154504250376823")
+    stub_request(:get, "https://www.strava.com/api/v3/activities/154504250376823")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
     
@@ -52,11 +52,11 @@ describe "Activity API" do
     user_id = user.id
     user_token = user.token
 
-    stub_request(:get, "https://www.strava.com/athlete/activites?per_page=1")
+    stub_request(:get, "https://www.strava.com/api/v3/athlete/activities?per_page=1")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_1)
     
-    stub_request(:get, "https://www.strava.com/activities/154504250376823")
+    stub_request(:get, "https://www.strava.com/api/v3/activities/154504250376823")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
 
@@ -91,11 +91,11 @@ describe "Activity API" do
     user_id = user.id
     user_token = user.token
 
-    stub_request(:get, "https://www.strava.com/athlete/activites?per_page=1")
+    stub_request(:get, "https://www.strava.com/api/v3/athlete/activities?per_page=1")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_1)
     
-    stub_request(:get, "https://www.strava.com/activities/154504250376823")
+    stub_request(:get, "https://www.strava.com/api/v3/activities/154504250376823")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
     
