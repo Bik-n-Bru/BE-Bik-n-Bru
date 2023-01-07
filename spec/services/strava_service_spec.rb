@@ -4,6 +4,7 @@ RSpec.describe StravaService do
   describe "Instance Methods" do 
     let(:service) { StravaService.new }
     let(:user) { create(:user, token: '96c401bc3baf0c0d272c30c473cf06bded9ad3ba')}
+    
     describe "#conn" do 
       it "creates a Faraday connection to www.strava.com" do 
         conn = service.conn(user.token)
