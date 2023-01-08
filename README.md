@@ -125,7 +125,7 @@ Back-End Service Api calls
 
 - Find Breweries by city and state
   - GET "/api/v1/breweries/#{user.id}"
-      ```
+  ```
   {
           :data=>[
             {
@@ -141,7 +141,7 @@ Back-End Service Api calls
                   :website_url=>nil
                   }
             },
-      ```
+  ```
 
 
 # Contributors
