@@ -14,16 +14,17 @@ Visit our Front End Site!
 
 # Table of Contents
 - [Setup](#setup)
-- [Built With](#built-with)
+- [Tech & Tools Used](#tech-and-tools)
 - [Endpoints](#endpoints)
 
 
-## Built With
+## Tech and Tools
   - ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white) **2.7.4**
   - ![Rails](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white) **5.2.8.1**
   - <img src="app/images/rspec_badge.png" alt="RSpec" height="30"> **3.12.0**
   - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
   - ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
+  - [CircleCi](https://circleci.com/)
 
 ## Setup
   If you would like to demo this API on your local machine:
@@ -54,91 +55,95 @@ Default host is <code>http://localhost:3000</code>
 
 Strava:<br>
 This endpoint is used to our OAuth and to collect user data that can be used for other queries
+- Sign in using Strava Oauth
 
+  - GET "/api/v3/oauth/token" 
+  ```
+        client_id = ENV['strava_client_id'] 
+        client_secret = ENV['strava_client_secret']   
+        code = ReplaceWithCode 
+        grant_type = authorization_code
+  ```
+
+Back-End Service Api calls (https://be-bik-n-bru.herokuapp.com/)
 - Find User by Strava athlete_id
   - GET "/api/v1/users/{athlete_id}?q=athlete_id"
   - ***RESPONSE***
 
-- Find User by Bīk-n-Brü id
-  - GET "/api/v1/users/#{id}
-  - <code>{
-      "data": {
-          "id": "2",
-          "type": "user",
-          "attributes": {
-              "username": "testcase",
-              "token": "12345abcde",
-              "athlete_id": "12345",
-              "city": "Not a city",
-              "state": "Not a state"
+- Find Users with information for leaderboard
+  - GET "/api/v1/leaderboard"
+  ```
+    {
+            data: [
+              {
+                attributes: {
+                  username: 'Lance',
+                  miles: '12897',
+                  beers: '527',
+                  co2_saved: '61'
+                }
               }
+            ]
           }
-      }</code>
-
-- Find Users latest activity by Strava athlete id/activity id
-  - GET "/athlete/activites?per_page=1"
-  - GET "/activities/<activity_id>
-    ```
-    [ {"resource_state" : 2,
-    "athlete" : {
-      "id" : 134815,
-      "resource_state" : 1
-    },
-    "name" : "Happy Friday",
-    "distance" : 24931.4,
-    "moving_time" : 4500,
-    "elapsed_time" : 4500,
-    "total_elevation_gain" : 0,
-    "type" : "Ride",
-    "sport_type" : "MountainBikeRide",
-    "workout_type" : null,
-    "id" : 154504250376823,
-    "external_id" : "garmin_push_12345678987654321",
-    "upload_id" : 987654321234567891234,
-    "start_date" : "2018-05-02T12:15:09Z",
-    "start_date_local" : "2018-05-02T05:15:09Z",
-    "timezone" : "(GMT-08:00) America/Los_Angeles",
-    "utc_offset" : -25200,
-    "start_latlng" : null,
-    "end_latlng" : null,
-    "location_city" : null,
-    "location_state" : null,
-    "location_country" : "United States",
-    "achievement_count" : 0,
-    "kudos_count" : 3,
-    "comment_count" : 1,
-    "athlete_count" : 1,
-    "photo_count" : 0,
-    "map" : {
-      "id" : "a12345678987654321",
-      "summary_polyline" : null,
-      "resource_state" : 2
-    },
-    "trainer" : true,
-    "commute" : false,
-    "manual" : false,
-    "private" : false,
-    "flagged" : false,
-    "gear_id" : "b12345678987654321",
-    "from_accepted_tag" : false,
-    "average_speed" : 5.54,
-    "max_speed" : 11,
-    "average_cadence" : 67.1,
-    "average_watts" : 175.3,
-    "weighted_average_watts" : 210,
-    "kilojoules" : 788.7,
-    "device_watts" : true,
-    "has_heartrate" : true,
-    "average_heartrate" : 140.3,
-    "max_heartrate" : 178,
-    "max_watts" : 406,
-    "pr_count" : 0,
-    "total_photo_count" : 1,
-    "has_kudoed" : false,
-    "suffer_score" : 82
-    }]
   ```
 
+- Update a User's Information
+  - PATCH "/api/v1/users/#{user_id}"
+    [:CONTENT_TYPE] = "application/json"
+  ```
+  {
+          :data=> {
+            :id=>"5",
+            :type=>"user",
+            :attributes=>{
+                :username=>"testcase",
+                :token=>"12345abcde",
+                :athlete_id=>"12345",
+                :city=>"Eugene",
+                :state=>"Oregon"
+                }, 
+                  :relationships=>
+                    {:activities=>{
+                      :data=>[]}}}}'
+  ```
+
+- Find User by Bīk-n-Brü id
+  - GET "/api/v1/users/#{id}
+    ```
+    {
+        "data": {
+            "id": "2",
+            "type": "user",
+            "attributes": {
+                "username": "testcase",
+                "token": "12345abcde",
+                "athlete_id": "12345",
+                "city": "Not a city",
+                "state": "Not a state"
+                }
+            }
+        }
+      ```
+
+- Find Breweries by city and state
+  - GET "/api/v1/breweries/#{user.id}"
+      ```
+        {
+            :data=>[
+              {
+              :id=>"10-56-brewing-company-knox",
+              :type=>"brewery",
+              :attributes=>{
+                    :name=>"10-56 Brewing Company",
+                    :street_address=>"400 Brown Cir",
+                    :city=>"Knox",
+                    state=>"Indiana",
+                    :zipcode=>"46534",
+                    :phone=>"6308165790",
+                    :website_url=>nil
+                    }
+              },
+        ```
 
 
 # Contributors
