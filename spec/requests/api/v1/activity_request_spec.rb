@@ -159,9 +159,10 @@ describe "Activity API" do
 
   it 'can get a single activity for a given user' do
     user = create(:user, state: "Colorado")
-    activity = create(:activity, user: user)
+    activity1 = create(:activity, user: user)
+    activity1_id = activity1.id.to_s
 
-    get "/api/v1/activities/#{user.id}/#{activity.id}"
+    get "/api/v1/activities/#{user.id}/#{activity1_id}"
 
     expect(response).to be_successful
 
@@ -170,7 +171,7 @@ describe "Activity API" do
     activity = response_body[:data]
 
     expect(activity).to have_key(:id)
-    expect(activity[:id]).to eq(activity.id)
+    expect(activity[:id]).to eq(activity1_id)
 
     expect(activity).to have_key(:attributes)
     expect(activity[:attributes][:brewery_name]).to be_a(String)

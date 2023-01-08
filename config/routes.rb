@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'api/v1/breweries/:user_id', to: 'api/v1/breweries#search'
 
   get 'api/v1/activities/:user_id', to: 'api/v1/activities#index'
+  get 'api/v1/activities/:user_id/:activity_id', to: 'api/v1/activities#show'
 end
