@@ -27,4 +27,17 @@ describe "Badges API" do
       expect(badge[:relationships][:user][:data][:id]).to eq(user.id.to_s)
     end
   end
+
+  it "returns an error if there is no user with that id" do 
+    user = create(:user)
+    5.times { create(:badge, user: user) }
+
+    get "/api/v1/users/10000/badges"
+    response_body = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(404)
+
+    expect(response_body[:message]).to eq("No record found")
+    expect(response_body[:errors]).to eq("Couldn't find User with 'id'=10000")
+  end
 end
