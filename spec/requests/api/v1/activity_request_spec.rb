@@ -156,4 +156,30 @@ describe "Activity API" do
       expect(activity[:attributes][:user_id]).to be_a(Integer)
     end
   end
+
+  it 'can get a single activity for a given user' do
+    user = create(:user, state: "Colorado")
+    activity = create(:activity, user: user)
+
+    get "/api/v1/activities/#{user.id}/#{activity.id}"
+
+    expect(response).to be_successful
+
+    response_body = JSON.parse(response.body, symbolize_names: true)
+  
+    activity = response_body[:data]
+
+    expect(activity).to have_key(:id)
+    expect(activity[:id]).to eq(activity.id)
+
+    expect(activity).to have_key(:attributes)
+    expect(activity[:attributes][:brewery_name]).to be_a(String)
+    expect(activity[:attributes][:distance]).to be_a(Float)
+    expect(activity[:attributes][:calories]).to be_a(Integer)
+    expect(activity[:attributes][:num_drinks]).to be_a(Integer)
+    expect(activity[:attributes][:drink_type]).to be_a(String)
+    expect(activity[:attributes][:dollars_saved]).to be_a(Float)
+    expect(activity[:attributes][:lbs_carbon_saved]).to be_a(Float)
+    expect(activity[:attributes][:user_id]).to be_a(Integer)
+  end
 end
