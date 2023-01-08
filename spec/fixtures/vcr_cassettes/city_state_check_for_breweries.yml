@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openbrewerydb.org/breweries?by_city=Bend&by_state=Oregon&per_page=50
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 08 Jan 2023 00:16:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Accept, Origin, Accept-Encoding
+      Cache-Control:
+      - public, max-age=86400
+      Etag:
+      - W/"511cee0164fdcdff0a4e67601fa36d09"
+      X-Request-Id:
+      - a0412925-3452-477b-8886-43b60fe2fe27
+      X-Runtime:
+      - '0.044871'
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubDomains
+      Via:
+      - 1.1 vegur
+      Cf-Cache-Status:
+      - MISS
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=69XWAGWZlxzAzvX8XnLp4xLEfrb6UEliUfZRTeTPKbo%2B%2F5572bWDCa5vQoiyyG7pawWGAf%2B%2FDvTBZHfBrhNVDyuQgeq6InyyrQfjjQNTdq9HRt0RMRQEiQRJZOg12ag9xYEoVXnLXtc%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7860bf5c182d276f-DEN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"id":"10-barrel-brewing-co-bend-1","name":"10 Barrel Brewing Co","brewery_type":"large","street":"62970
+        18th St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-9847","country":"United
+        States","longitude":"-121.28170597038259","latitude":"44.08683530625218","phone":"5415851007","website_url":"http://www.10barrel.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"10-barrel-brewing-co-bend-2","name":"10
+        Barrel Brewing Co","brewery_type":"large","street":"1135 NW Galveston Ave
+        Ste B","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97703-2465","country":"United
+        States","longitude":"-121.32880209261799","latitude":"44.057564901366796","phone":"5415851007","website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"10-barrel-brewing-co-bend-pub-bend","name":"10
+        Barrel Brewing Co - Bend Pub","brewery_type":"large","street":"62950 NE 18th
+        St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701","country":"United
+        States","longitude":"-121.2809536","latitude":"44.0912109","phone":"5415851007","website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"bend-brewing-co-bend","name":"Bend
+        Brewing Co","brewery_type":"brewpub","street":"1019 NW Brooks St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97703-2018","country":"United
+        States","longitude":"-121.3139312","latitude":"44.06051115","phone":"5413831599","website_url":"http://www.bendbrewingco.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"bend-brewing-high-desert-bend","name":"Bend
+        Brewing High Desert","brewery_type":"closed","street":"20650 NE High Desert
+        Lane","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701","country":"United
+        States","longitude":"-121.29148420219094","latitude":"44.08727606764976","phone":"5413831599","website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"bevel-craft-brewing-bend","name":"Bevel
+        Craft Brewing","brewery_type":"planning","street":null,"address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-4924","country":"United
+        States","longitude":"-121.29175161753496","latitude":"44.04614867770373","phone":"8313451922","website_url":"http://www.bevelbeer.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"boneyard-beer-co-bend-1","name":"Boneyard
+        Beer Co","brewery_type":"micro","street":"37 NW Lake Pl Ste B","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97703-2971","country":"United
+        States","longitude":"-121.3080908310276","latitude":"44.05412648135139","phone":"5413232325","website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"boneyard-beer-co-bend-2","name":"Boneyard
+        Beer Co","brewery_type":"brewpub","street":"1955 NE Division St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701","country":"United
+        States","longitude":"-121.3065352839469","latitude":"44.070947338720586","phone":"5413232325","website_url":"http://www.boneyardbeer.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"bridge-99-brewery-bend","name":"Bridge
+        99 Brewery","brewery_type":"micro","street":"63063 Layton Ave","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-7087","country":"United
+        States","longitude":"-121.29167066171219","latitude":"44.0910373841613","phone":"5412801690","website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"craft-kitchen-and-brewery-bend","name":"Craft
+        Kitchen and Brewery","brewery_type":"brewpub","street":"62988 Layton Ave Ste
+        103","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-6692","country":"United
+        States","longitude":"-121.29036511383369","latitude":"44.087193179112454","phone":"5416681766","website_url":"http://www.craftkitchenandbrewery.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"crux-fermentation-project-bend","name":"Crux
+        Fermentation Project","brewery_type":"regional","street":"50 SW Division St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97702-1600","country":"United
+        States","longitude":"-121.30796567520619","latitude":"44.05092628926822","phone":"5413887558","website_url":"http://www.cruxfermentation.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"crux-fermentation-project-crux2-bend","name":"Crux
+        Fermentation Project - Crux2","brewery_type":"micro","street":"63065 NE 18th
+        St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-9981","country":"United
+        States","longitude":"-121.28244691568368","latitude":"44.08947728514322","phone":null,"website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"deschutes-brewery-and-public-house-bend","name":"Deschutes
+        Brewery \u0026 Public House","brewery_type":"brewpub","street":"1044 NW Bond
+        St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97703-2002","country":"United
+        States","longitude":"-121.3113845","latitude":"44.05941415","phone":"5413829242","website_url":"http://www.deschutesbrewery.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"deschutes-brewery-bend","name":"Deschutes
+        Brewery","brewery_type":"regional","street":"901 SW Simpson Ave","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97702-3118","country":"United
+        States","longitude":"-121.3246184","latitude":"44.04780638","phone":"5413858606","website_url":"http://www.deschutesbrewery.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"goodlife-brewing-company-bend","name":"GoodLife
+        Brewing Company","brewery_type":"regional","street":"70 SW Century Ave 100-464","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701","country":"United
+        States","longitude":"-121.33029415986336","latitude":"44.05138310675641","phone":"5417280749","website_url":"http://www.goodlifebrewing.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"immersion-brewing-bend","name":"Immersion
+        Brewing","brewery_type":"brewpub","street":"550 SW Industrial Way","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97702-1084","country":"United
+        States","longitude":"-121.3155231","latitude":"44.05100445","phone":"5416337821","website_url":"http://www.imbrewing.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"mcmenamins-old-st-francis-school-bend","name":"McMenamins
+        Old St. Francis School","brewery_type":"brewpub","street":"700 NW Bond St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97703-2702","country":"United
+        States","longitude":"-121.314499","latitude":"44.0566885","phone":"5413825174","website_url":"http://www.mcmenamins.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"monkless-belgian-ales-bend","name":"Monkless
+        Belgian Ales","brewery_type":"micro","street":"20750 High Desert Ln Suite
+        107","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701","country":"United
+        States","longitude":"-121.31791635986342","latitude":"44.05020630334752","phone":"5416105492","website_url":"http://www.monkless.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"oblivion-brewing-co-bend","name":"Oblivion
+        Brewing Co","brewery_type":"micro","street":"63027 Plateau Dr Ste 4","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-3855","country":"United
+        States","longitude":"-121.29338294636945","latitude":"44.08881820777285","phone":"5417283509","website_url":"http://www.oblivionbrewingco.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"riverbend-brewing-pub-bend","name":"RiverBend
+        Brewing Pub","brewery_type":"closed","street":"2650 NE Division St","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97703-3569","country":"United
+        States","longitude":"-121.30518337335555","latitude":"44.07600989599612","phone":"5415507550","website_url":"http://www.riverbendbrewing.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"shade-tree-brewing-bend","name":"Shade
+        Tree Brewing","brewery_type":"micro","street":"19305 Indian Summer Rd","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97702","country":"United
+        States","longitude":"-121.35885585986522","latitude":"43.992699689177776","phone":"5413833730","website_url":"http://www.shadetreebrewing.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"silver-moon-brewing-bend","name":"Silver
+        Moon Brewing","brewery_type":"micro","street":"24 NW Greenwood Ave","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97703-2027","country":"United
+        States","longitude":"-121.3079151","latitude":"44.0603904","phone":"5413888331","website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"the-ale-apothecary-bend","name":"The
+        Ale Apothecary","brewery_type":"micro","street":"30 SW Century Drive Suite
+        140","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97702","country":"United
+        States","longitude":"-121.33142768075643","latitude":"44.05140622110908","phone":"5414081525","website_url":"http://www.thealeapothecary.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"worthy-brewing-company-bend","name":"Worthy
+        Brewing Company","brewery_type":"micro","street":"495 NE Bellevue Dr","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-7412","country":"United
+        States","longitude":"-121.2603915","latitude":"44.0553542","phone":"5416394772","website_url":"http://www.worthybrewing.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"}]'
+  recorded_at: Sun, 08 Jan 2023 00:16:58 GMT
+recorded_with: VCR 6.1.0

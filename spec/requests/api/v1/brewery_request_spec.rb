@@ -3,7 +3,7 @@ require "rails_helper"
 describe "Open Brewery Api" do
   it 'can find breweries based on city and state' do
     VCR.use_cassette('bnb_breweries_in_Denver') do
-      user = create(:user, username: "Billy", id: "10", city: "denver", state: "colorado")
+      user = create(:user, city: "denver", state: "colorado")
 
       get "/api/v1/breweries/#{user.id}"
       expect(response).to be_successful
@@ -12,7 +12,7 @@ describe "Open Brewery Api" do
       response_body = JSON.parse(response.body, symbolize_names: true)
       breweries = response_body[:data]
       
-      expect(breweries.count).to eq(20)
+      expect(breweries.count).to eq(50)
 
       breweries.each do |brewery|
         expect(brewery).to have_key(:id)
@@ -28,6 +28,9 @@ describe "Open Brewery Api" do
         expect(brewery[:attributes][:phone]).to be_a(String) if !brewery[:attributes][:phone].nil?
         expect(brewery[:attributes]).to have_key(:website_url)
         expect(brewery[:attributes][:website_url]).to be_a(String) if !brewery[:attributes][:website].nil?
+
+        expect(brewery[:attributes][:state]).to eq("Colorado")
+        expect(brewery[:attributes][:city]).to eq("Denver")
       end
     end
   end
