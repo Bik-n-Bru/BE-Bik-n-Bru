@@ -124,4 +124,36 @@ describe "Activity API" do
     expect(response_data).to have_key(:errors)
     expect(response_data[:errors]).to eq(["User must exist", "User can't be blank", "Distance can't be blank", "Calories can't be blank", "Num drinks can't be blank", "Dollars saved can't be blank", "Lbs carbon saved can't be blank"])
   end
+
+  it 'can return a list of all activities for a given user' do
+    user1 = create(:user, state: "Colorado")
+    user2 = create(:user, state: "Arizona")
+    create_list(:activity, 15, user: user1)
+    create_list(:activity, 10, user: user2)
+
+    get "/api/v1/activities/#{user1.id}"
+
+    expect(response).to be_successful
+
+    response_body = JSON.parse(response.body, symbolize_names: true)
+
+    activities = response_body[:data]
+
+    expect(activities.count).to eq(15)
+    require 'pry'; binding.pry
+    activities.each do |activity|
+      expect(activity).to have_key(:id)
+      expect(activity[:id]).to be_an(String)
+
+      expect(activity).to have_key(:attributes)
+      expect(activity[:attributes][:brewery_name]).to be_a(String)
+      expect(activity[:attributes][:distance]).to be_a(Float)
+      expect(activity[:attributes][:calories]).to be_a(Integer)
+      expect(activity[:attributes][:num_drinks]).to be_a(Integer)
+      expect(activity[:attributes][:drink_type]).to be_a(String)
+      expect(activity[:attributes][:dollars_saved]).to be_a(Float)
+      expect(activity[:attributes][:lbs_carbon_saved]).to be_a(Float)
+      expect(activity[:attributes][:user_id]).to be_a(Integer)
+    end
+  end
 end
