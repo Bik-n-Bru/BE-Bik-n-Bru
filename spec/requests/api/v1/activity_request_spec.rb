@@ -131,7 +131,7 @@ describe "Activity API" do
     create_list(:activity, 15, user: user1)
     create_list(:activity, 10, user: user2)
 
-    get "/api/v1/activities/#{user1.id}"
+    get "/api/v1/users/#{user1.id}/activities"
 
     expect(response).to be_successful
 
@@ -162,7 +162,7 @@ describe "Activity API" do
     activity1 = create(:activity, user: user)
     activity1_id = activity1.id.to_s
 
-    get "/api/v1/activities/#{user.id}/#{activity1_id}"
+    get "/api/v1/activities/#{activity1_id}"
 
     expect(response).to be_successful
 

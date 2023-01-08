@@ -15,7 +15,7 @@ class Api::V1::ActivitiesController < ApplicationController
   end
 
   def show
-    render json: ActivitySerializer.new(Activity.find(params[:activity_id]))
+    render json: ActivitySerializer.new(Activity.find(params[:id]))
   end
 
   private 
