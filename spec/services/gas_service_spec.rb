@@ -11,7 +11,7 @@ RSpec.describe GasService do
     end
 
     describe "#get_url" do
-      it "returns a parsed json for the given url" do 
+      it "returns a parsed json response for the given url endpoint" do 
         VCR.use_cassette('gas_get_url') do 
           parsed = service.get_url('/gasPrice/stateUsaPrice?state=HI')
 
@@ -30,7 +30,7 @@ RSpec.describe GasService do
     end
 
     describe "#get_gas_price" do 
-      it "returns a float = gas price for a given state" do 
+      it "returns a float of gas price for a given state" do 
         VCR.use_cassette('get_gas_price') do 
           gas_price = service.get_gas_price("CO")
 
