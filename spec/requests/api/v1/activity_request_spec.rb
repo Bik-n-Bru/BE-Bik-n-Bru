@@ -192,13 +192,13 @@ describe "Activity API" do
     get "/api/v1/activities/#{activity_id}"
 
     response_data = JSON.parse(response.body, symbolize_names: true)
-    require 'pry'; binding.pry
-    expect(response.status).to eq(400)
+
+    expect(response.status).to eq(404)
 
     expect(response_data).to have_key(:message)
-    expect(response_data[:message]).to eq("Record is missing one or more attributes")
+    expect(response_data[:message]).to eq("No record found")
 
     expect(response_data).to have_key(:errors)
-    expect(response_data[:errors]).to eq(["User must exist", "User can't be blank", "Distance can't be blank", "Calories can't be blank", "Num drinks can't be blank", "Dollars saved can't be blank", "Lbs carbon saved can't be blank"])
+    expect(response_data[:errors]).to eq(["Couldn't find Activity with 'id'=#{activity_id}"])
   end
 end
