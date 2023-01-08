@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - apikey 7sRia4D4j8Y3aU5s9VD4MM:2q6Ifm2XpnsobKgIPrA3sc
+      User-Agent:
+      - Faraday v2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 07 Jan 2023 19:37:24 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Powered-By:
+      - Express
+      Etag:
+      - W/"63b-uruLQ11zrT14TGtIac3IOL52bBg"
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=aeWx68eAURQUTPt%2Bcl8%2BPgpI9dxQkzAnZMKhLLLlMwQGMjhURQvNL8AJNmz14WMURVZHFzkz0H9zBYNBcvVc3gdebLxkLmXzBFSkH38GwqSePURjaBWUfTFgijJHktpnB2DLsRw%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - strict-origin
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 785f25d209521f41-DEN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"success":true,"result":{"state":{"currency":"usd","name":"Colorado","lowerName":"colorado","gasoline":"3.079","midGrade":"3.418","premium":"3.719","diesel":"4.288"},"cities":[{"currency":"usd","gasoline":"3.046","midGrade":"3.400","premium":"3.700","diesel":"4.260","name":"Boulder-Longmont","lowerName":"boulder-longmont"},{"currency":"usd","gasoline":"3.026","midGrade":"3.381","premium":"3.686","diesel":"4.171","name":"Colorado
+        Springs","lowerName":"colorado springs"},{"currency":"usd","gasoline":"3.012","midGrade":"3.384","premium":"3.681","diesel":"4.142","name":"Denver","lowerName":"denver"},{"currency":"usd","gasoline":"3.222","midGrade":"3.459","premium":"3.671","diesel":"4.763","name":"Durango","lowerName":"durango"},{"currency":"usd","gasoline":"3.010","midGrade":"3.385","premium":"3.679","diesel":"4.349","name":"Fort
+        Collins-Loveland","lowerName":"fort collins-loveland"},{"currency":"usd","gasoline":"3.472","midGrade":"3.812","premium":"4.079","diesel":"4.662","name":"Glenwood
+        Springs","lowerName":"glenwood springs"},{"currency":"usd","gasoline":"3.098","midGrade":"3.387","premium":"3.656","diesel":"4.571","name":"Grand
+        Junction (CO only)","lowerName":"grand junction (co only)"},{"currency":"usd","gasoline":"3.019","midGrade":"3.332","premium":"3.603","diesel":"4.162","name":"Greeley","lowerName":"greeley"},{"currency":"usd","gasoline":"3.099","midGrade":"3.485","premium":"3.755","diesel":"4.396","name":"Pueblo","lowerName":"pueblo"},{"currency":"usd","gasoline":"3.599","midGrade":"3.885","premium":"4.200","diesel":"4.635","name":"Vail","lowerName":"vail"}]}}'
+  recorded_at: Sat, 07 Jan 2023 19:37:24 GMT
+recorded_with: VCR 6.1.0

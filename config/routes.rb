@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         resources :badges, only: [:index]
         resources :activities, only: [:index]
       end
+      
       resources :activities, only: [:create, :show]
     end
   end
