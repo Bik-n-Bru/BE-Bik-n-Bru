@@ -9,6 +9,11 @@ class Api::V1::ActivitiesController < ApplicationController
     end
   end
 
+  def index
+    user = User.find(params[:user_id])
+    render json: ActivitySerializer.new(user.activities)
+  end
+
   private 
 
     def activity_params

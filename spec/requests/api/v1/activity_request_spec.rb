@@ -140,7 +140,7 @@ describe "Activity API" do
     activities = response_body[:data]
 
     expect(activities.count).to eq(15)
-    require 'pry'; binding.pry
+
     activities.each do |activity|
       expect(activity).to have_key(:id)
       expect(activity[:id]).to be_an(String)
