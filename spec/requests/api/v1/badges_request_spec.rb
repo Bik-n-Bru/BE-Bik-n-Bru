@@ -12,19 +12,19 @@ describe "Badges API" do
 
     response_body = JSON.parse(response.body, symbolize_names: true)
 
-    badges = response.body[:data]
+    badges = response_body[:data]
 
     expect(badges).to be_an(Array)
 
     badges.each do |badge|
       expect(badge).to be_a(Hash)
-      expect(badge[:id]).to be_an(Integer)
+      expect(badge[:id]).to be_an(String)
       expect(badge[:type]).to eq("badge")
       expect(badge[:attributes]).to be_a(Hash)
       expect(badge[:attributes]).to have_key(:title)
       expect(badge[:attributes][:title]).to be_a(String)
-      expect(badge[:attributes]).to have_key(:user_id)
-      expect(badge[:attributes[:user_id]]).to eq(user.id)
+      expect(badge[:relationships]).to have_key(:user)
+      expect(badge[:relationships][:user][:data][:id]).to eq(user.id.to_s)
     end
   end
 end
