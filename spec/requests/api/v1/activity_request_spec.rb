@@ -183,4 +183,22 @@ describe "Activity API" do
     expect(activity[:attributes][:lbs_carbon_saved]).to be_a(Float)
     expect(activity[:attributes][:user_id]).to be_a(Integer)
   end
+
+  it 'returns an error if there is no activity' do
+    user = create(:user, state: "Colorado")
+    create_list(:activity, 25, user: user)
+    activity_id = "999999999"
+
+    get "/api/v1/activities/#{activity_id}"
+
+    response_data = JSON.parse(response.body, symbolize_names: true)
+    require 'pry'; binding.pry
+    expect(response.status).to eq(400)
+
+    expect(response_data).to have_key(:message)
+    expect(response_data[:message]).to eq("Record is missing one or more attributes")
+
+    expect(response_data).to have_key(:errors)
+    expect(response_data[:errors]).to eq(["User must exist", "User can't be blank", "Distance can't be blank", "Calories can't be blank", "Num drinks can't be blank", "Dollars saved can't be blank", "Lbs carbon saved can't be blank"])
+  end
 end
