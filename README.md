@@ -9,7 +9,7 @@ This repo is the Back End portion of the Bīk-n-Brü project built by Mod 3 stud
 The purpose of this app is to encourage people to ride their bikes to bars to decrease their carbon footprint by gamifying the exercise/bar experience!
 
 Visit our Front End Site!
-  - *[Bīk-n-Brü](https://fe-bik-n-bru.herokuapp.com/)*
+   *[Bīk-n-Brü](https://fe-bik-n-bru.herokuapp.com/)*
 <br>
 
 # Table of Contents
@@ -24,7 +24,7 @@ Visit our Front End Site!
   - <img src="app/images/rspec_badge.png" alt="RSpec" height="30"> **3.12.0**
   - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
   - ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
-  - [CircleCi](https://circleci.com/)
+  - <img src="app/images/CircleCi_logo.png" alt="Circle Ci" height="30">
 
 ## Setup
   If you would like to demo this API on your local machine:
@@ -65,10 +65,26 @@ This endpoint is used to our OAuth and to collect user data that can be used for
         grant_type = authorization_code
   ```
 
-Back-End Service Api calls (https://be-bik-n-bru.herokuapp.com/)
-- Find User by Strava athlete_id
-  - GET "/api/v1/users/{athlete_id}?q=athlete_id"
-  - ***RESPONSE***
+Back-End Service Api calls 
+  - Base URL https://be-bik-n-bru.herokuapp.com
+
+- Find User by Bīk-n-Brü id
+  - GET "/api/v1/users/#{id}
+    ```
+    {
+            "data": {
+                "id": "2",
+                "type": "user",
+                "attributes": {
+                    "username": "testcase",
+                    "token": "12345abcde",
+                    "athlete_id": "12345",
+                    "city": "Not a city",
+                    "state": "Not a state"
+                    }
+                }
+            }
+      ```
 
 - Find Users with information for leaderboard
   - GET "/api/v1/leaderboard"
@@ -84,66 +100,48 @@ Back-End Service Api calls (https://be-bik-n-bru.herokuapp.com/)
                 }
               }
             ]
-          }
+          },
   ```
 
 - Update a User's Information
   - PATCH "/api/v1/users/#{user_id}"
-    [:CONTENT_TYPE] = "application/json"
   ```
   {
           :data=> {
-            :id=>"5",
-            :type=>"user",
-            :attributes=>{
-                :username=>"testcase",
-                :token=>"12345abcde",
-                :athlete_id=>"12345",
-                :city=>"Eugene",
-                :state=>"Oregon"
-                }, 
-                  :relationships=>
-                    {:activities=>{
-                      :data=>[]}}}}'
+              :id=>"5",
+              :type=>"user",
+              :attributes=>{
+                  :username=>"testcase",
+                  :token=>"12345abcde",
+                  :athlete_id=>"12345",
+                  :city=>"Eugene",
+                  :state=>"Oregon"
+                  }, 
+                    :relationships=>
+                      {:activities=>{
+                        :data=>[]}}}}'
   ```
 
-- Find User by Bīk-n-Brü id
-  - GET "/api/v1/users/#{id}
-    ```
-    {
-        "data": {
-            "id": "2",
-            "type": "user",
-            "attributes": {
-                "username": "testcase",
-                "token": "12345abcde",
-                "athlete_id": "12345",
-                "city": "Not a city",
-                "state": "Not a state"
-                }
-            }
-        }
-      ```
 
 - Find Breweries by city and state
   - GET "/api/v1/breweries/#{user.id}"
       ```
-        {
-            :data=>[
-              {
-              :id=>"10-56-brewing-company-knox",
-              :type=>"brewery",
-              :attributes=>{
-                    :name=>"10-56 Brewing Company",
-                    :street_address=>"400 Brown Cir",
-                    :city=>"Knox",
-                    state=>"Indiana",
-                    :zipcode=>"46534",
-                    :phone=>"6308165790",
-                    :website_url=>nil
-                    }
-              },
-        ```
+  {
+          :data=>[
+            {
+            :id=>"10-56-brewing-company-knox",
+            :type=>"brewery",
+            :attributes=>{
+                  :name=>"10-56 Brewing Company",
+                  :street_address=>"400 Brown Cir",
+                  :city=>"Knox",
+                  state=>"Indiana",
+                  :zipcode=>"46534",
+                  :phone=>"6308165790",
+                  :website_url=>nil
+                  }
+            },
+      ```
 
 
 # Contributors
