@@ -38,6 +38,6 @@ describe "Badges API" do
     expect(response.status).to eq(404)
 
     expect(response_body[:message]).to eq("No record found")
-    expect(response_body[:errors]).to eq("Couldn't find User with 'id'=10000")
+    expect(response_body[:errors]).to eq(["Couldn't find User with 'id'=10000"])
   end
 end
