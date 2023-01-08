@@ -7,13 +7,16 @@ class BreweriesService
   end
 
   def self.get_url(url, city, state)
-    response = conn(city, state).get(url)
-    parsed_response(response)
+    response = conn.get(url) do |req|
+      req.params[:by_city] = city 
+      req.params[:by_state] = state
+      req.params[:per_page] = 50
+    end
+    JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.conn(city, state)
-    Faraday.new(url: "https://api.openbrewerydb.org/", 
-      params: { "by_city": city, "by_state": state })
+  def self.conn
+    Faraday.new(url: "https://api.openbrewerydb.org/")
   end
 
   def self.parsed_response(response)

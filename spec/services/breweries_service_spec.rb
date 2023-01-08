@@ -47,4 +47,15 @@ describe 'Breweries Service' do
         :created_at=>"2023-01-04T04:46:02.393Z"})
     end
   end
+
+  it "only returns brewries in that city/state" do 
+    VCR.use_cassette("city_state_check_for_breweries") do 
+      results = BreweriesService.search_by_city_state("Bend", "Oregon")
+
+      results.each do |result|
+        expect(result.city).to eq("Bend")
+        expect(result.state).to eq("Oregon")
+      end
+    end
+  end
 end
