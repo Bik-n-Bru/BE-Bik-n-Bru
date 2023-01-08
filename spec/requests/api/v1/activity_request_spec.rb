@@ -184,6 +184,24 @@ describe "Activity API" do
     expect(activity[:attributes][:user_id]).to be_a(Integer)
   end
 
+  it 'returns an error if there is no user' do
+    user = create(:user, state: "Colorado")
+    create_list(:activity, 25, user: user)
+    user_id = "999999999"
+
+    get "/api/v1/users/#{user_id}/activities"
+
+    response_data = JSON.parse(response.body, symbolize_names: true)
+
+    expect(response.status).to eq(404)
+
+    expect(response_data).to have_key(:message)
+    expect(response_data[:message]).to eq("No record found")
+
+    expect(response_data).to have_key(:errors)
+    expect(response_data[:errors]).to eq(["Couldn't find User with 'id'=#{user_id}"])
+  end
+
   it 'returns an error if there is no activity' do
     user = create(:user, state: "Colorado")
     create_list(:activity, 25, user: user)
