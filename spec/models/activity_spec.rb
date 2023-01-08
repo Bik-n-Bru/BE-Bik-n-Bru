@@ -32,11 +32,11 @@ RSpec.describe Activity, type: :model do
                               user_id: "#{user_id}"
                            }
     
-        stub_request(:get, "https://www.strava.com/athlete/activites?per_page=1")
+        stub_request(:get, "https://www.strava.com/api/v3/athlete/activities?per_page=1")
           .with(headers: {"Authorization" => "Bearer #{user_token}"})
           .to_return(status: 200, body: response_body_1)
         
-        stub_request(:get, "https://www.strava.com/activities/154504250376823")
+        stub_request(:get, "https://www.strava.com/api/v3/activities/154504250376823")
           .with(headers: {"Authorization" => "Bearer #{user_token}"})
           .to_return(status: 200, body: response_body_2)
 
