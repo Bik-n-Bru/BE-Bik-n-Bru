@@ -27,6 +27,7 @@ class Activity < ApplicationRecord
   def update_from_gas_service
     abbreviation = StateSymbol.convert(user.state)
     gas_price = gas_service.get_gas_price(abbreviation)
+    # 22 is average mpg of US car
     self.dollars_saved = ((self.distance / 22) * gas_price).round(2) 
     self.lbs_carbon_saved = (distance * 0.9).round(2)
   end
@@ -36,7 +37,9 @@ class Activity < ApplicationRecord
     when "IPA"
       beer_calories = 300.0
     when "Pilsner"
-      beer_calories = 250.0
+      beer_calories = 200.0
+    when "Light Beer"
+      beer_calories = 104.0
     end
     (self.calories / beer_calories).round unless drink_type.nil?
   end
@@ -51,5 +54,14 @@ class Activity < ApplicationRecord
 
   def create_badges
     user.create_badges
+  end
+
+  def self.leaders
+    self
+      .joins(:user)
+      .group("users.id")
+      .select("sum(activities.num_drinks) as beers, sum(activities.lbs_carbon_saved) as carbon, sum(distance) as miles, users.username")
+      .order(miles: :desc)
+      .limit(10)
   end
 end

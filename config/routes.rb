@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
   end
   
-  get 'api/v1/breweries/:user_id', to: 'api/v1/breweries#search'
+  get '/api/v1/breweries/:user_id', to: 'api/v1/breweries#search'
+  get '/api/v1/leaderboard', to: 'api/v1/users#leaderboard'
 end
