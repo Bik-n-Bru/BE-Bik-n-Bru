@@ -153,6 +153,7 @@ describe "Activity API" do
       expect(activity[:attributes][:drink_type]).to be_a(String)
       expect(activity[:attributes][:dollars_saved]).to be_a(Float)
       expect(activity[:attributes][:lbs_carbon_saved]).to be_a(Float)
+      expect(activity[:attributes][:created_at]).to be_a(String)
       expect(activity[:attributes][:user_id]).to be_a(Integer)
     end
   end
@@ -181,6 +182,7 @@ describe "Activity API" do
     expect(activity[:attributes][:drink_type]).to be_a(String)
     expect(activity[:attributes][:dollars_saved]).to be_a(Float)
     expect(activity[:attributes][:lbs_carbon_saved]).to be_a(Float)
+    expect(activity[:attributes][:created_at]).to be_a(String)
     expect(activity[:attributes][:user_id]).to be_a(Integer)
   end
 
