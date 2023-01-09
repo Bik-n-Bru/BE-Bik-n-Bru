@@ -130,7 +130,7 @@ describe "Activity API" do
     user_id = user.id
     user_token = user.token
 
-    create(:activity, )
+    create(:activity, strava_activity_id: 12345678987654321)
 
     stub_request(:get, "https://www.strava.com/api/v3/athlete/activities?per_page=1")
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
@@ -155,6 +155,17 @@ describe "Activity API" do
     expect(Activity.all.count).to eq(1)
 
     post "/api/v1/activities", headers: headers, params: JSON.generate(activity: activity_params)
+    
+    response_data = JSON.parse(response.body, symbolize_names: true)
+    
+    expect(Activity.all.count).to eq(1)
+    expect(response.status).to eq(400)
+
+    expect(response_data).to have_key(:message)
+    expect(response_data[:message]).to eq("Record already exists")
+
+    expect(response_data).to have_key(:errors)
+    expect(response_data[:errors]).to eq(["This strava activity has already been logged"])
   end
 
   it 'can return a list of all activities for a given user' do
