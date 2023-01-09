@@ -8,6 +8,7 @@ class Activity < ApplicationRecord
             :brewery_name, 
             :dollars_saved, 
             :lbs_carbon_saved, 
+            :strava_activity_id,
             presence: true
   
   after_save :create_badges
@@ -22,6 +23,7 @@ class Activity < ApplicationRecord
     self.distance = (strava_activity.distance_in_meters / 1609.344).round(6) 
     self.calories = strava_activity.calories 
     self.num_drinks = calculate_num_drinks
+    self.strava_activity_id = strava_activity.id
   end
 
   def update_from_gas_service

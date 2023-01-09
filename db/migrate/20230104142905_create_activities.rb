@@ -8,6 +8,7 @@ class CreateActivities < ActiveRecord::Migration[5.2]
       t.string :drink_type
       t.float :dollars_saved
       t.float :lbs_carbon_saved
+      t.bigint :strava_activity_id
       t.references :user, foreign_key: true
 
       t.timestamps
