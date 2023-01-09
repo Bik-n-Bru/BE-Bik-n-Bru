@@ -122,7 +122,50 @@ describe "Activity API" do
     expect(response_data[:message]).to eq("Record is missing one or more attributes")
 
     expect(response_data).to have_key(:errors)
-    expect(response_data[:errors]).to eq(["User must exist", "User can't be blank", "Distance can't be blank", "Calories can't be blank", "Num drinks can't be blank", "Dollars saved can't be blank", "Lbs carbon saved can't be blank"])
+    expect(response_data[:errors]).to eq(["User must exist", "User can't be blank", "Distance can't be blank", "Calories can't be blank", "Num drinks can't be blank", "Dollars saved can't be blank", "Lbs carbon saved can't be blank", "Strava activity can't be blank"])
+  end
+
+  it "doesn't create a new activity if the user has already logged that strava activity as a bnb activity, and returns an error" do 
+    user = create(:user, state: "Colorado")
+    user_id = user.id
+    user_token = user.token
+
+    create(:activity, strava_activity_id: 12345678987654321)
+
+    stub_request(:get, "https://www.strava.com/api/v3/athlete/activities?per_page=1")
+      .with(headers: {"Authorization" => "Bearer #{user_token}"})
+      .to_return(status: 200, body: response_body_1)
+    
+    stub_request(:get, "https://www.strava.com/api/v3/activities/154504250376823")
+      .with(headers: {"Authorization" => "Bearer #{user_token}"})
+      .to_return(status: 200, body: response_body_2)
+    
+      stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+      .to_return(status: 200, body: response_body_3)
+
+      activity_params = {
+        data: {
+          brewery_name: "Name",
+          drink_type: "IPA",
+          user_id: "#{user_id}"
+        }
+      }
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    expect(Activity.all.count).to eq(1)
+
+    post "/api/v1/activities", headers: headers, params: JSON.generate(activity: activity_params)
+    
+    response_data = JSON.parse(response.body, symbolize_names: true)
+    
+    expect(Activity.all.count).to eq(1)
+    expect(response.status).to eq(400)
+
+    expect(response_data).to have_key(:message)
+    expect(response_data[:message]).to eq("Record already exists")
+
+    expect(response_data).to have_key(:errors)
+    expect(response_data[:errors]).to eq(["This strava activity has already been logged"])
   end
 
   it 'can return a list of all activities for a given user' do

@@ -8,5 +8,6 @@ FactoryBot.define do
     brewery_name { Faker::Name.name }
     dollars_saved { ((distance / 22) * 3.5).round(2) }
     lbs_carbon_saved { (distance * 0.9).round(2) }
+    strava_activity_id { Faker::Number.number(digits: 8) }
   end
 end

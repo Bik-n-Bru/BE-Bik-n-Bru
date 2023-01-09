@@ -12,4 +12,11 @@ class ErrorSerializer
       "errors": messages
     }
   end
+
+  def self.already_exists
+    {
+      "message": "Record already exists",
+      "errors": ["This strava activity has already been logged"]
+    }
+  end
 end
