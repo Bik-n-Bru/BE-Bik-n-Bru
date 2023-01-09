@@ -16,6 +16,55 @@ RSpec.describe Activity, type: :model do
     it { should validate_presence_of(:lbs_carbon_saved)}
   end
 
+  describe "Class Methods" do 
+    describe "::leaders" do 
+      it "returns a list of 10 users with attributes miles, beers, carbon, username, and id sorted by total miles" do 
+        users = []
+        12.times { users << create(:user)}
+        user1, user2, user3, user4, user5, user6, user7, user8, user9, user10, user11, user12 = users
+
+        12.times { create(:activity, distance: 100, user: user5) }
+        11.times { create(:activity, distance: 100, user: user6) }
+        10.times { create(:activity, distance: 100, user: user11) }
+        9.times { create(:activity, distance: 100, user: user3) }
+        8.times { create(:activity, distance: 100, user: user9) }
+        7.times { create(:activity, distance: 100, user: user1) }
+        6.times { create(:activity, distance: 100, user: user8) }
+        5.times { create(:activity, distance: 100, user: user10) }
+        4.times { create(:activity, distance: 100, user: user7) }
+        3.times { create(:activity, distance: 100, user: user4) }
+        2.times { create(:activity, distance: 100, user: user12) }
+        1.times { create(:activity, distance: 100, user: user2) }
+
+        leaders = Activity.leaders 
+
+        expect(leaders.length).to eq(10)
+
+        leaders.each do |leader|
+          expect(leader.username).to be_a(String)
+          expect(leader.miles).to be_a(Float)
+          expect(leader.beers).to be_an(Integer)
+          expect(leader.carbon).to be_a(Float)
+        end
+
+        expect(leaders[0].username).to eq(user5.username)
+        expect(leaders[0].miles).to eq(1200)
+
+        expect(leaders[1].username).to eq(user6.username)
+        expect(leaders[1].miles).to eq(1100)
+
+        expect(leaders[2].username).to eq(user11.username)
+        expect(leaders[2].miles).to eq(1000)
+
+        expect(leaders[3].username).to eq(user3.username)
+        expect(leaders[3].miles).to eq(900)
+
+        expect(leaders.last.username).to eq(user4.username)
+        expect(leaders.last.miles).to eq(300)
+      end
+    end
+  end
+
   describe "Instance Methods" do 
     let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json')}
     let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json')}
@@ -61,9 +110,11 @@ RSpec.describe Activity, type: :model do
       it "should return the rounded number of drinks based on the activities attributes" do 
         activity_1 = create(:activity, calories: 980, drink_type: "Pilsner")
         activity_2 = create(:activity, calories: 402, drink_type: "IPA")
+        activity_3 = create(:activity, calories: 402, drink_type: "Light Beer")
 
         expect(activity_1.calculate_num_drinks).to eq(5)
         expect(activity_2.calculate_num_drinks).to eq(1)
+        expect(activity_3.calculate_num_drinks).to eq(4)
       end
     end
 

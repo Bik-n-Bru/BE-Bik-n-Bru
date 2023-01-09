@@ -18,6 +18,7 @@ RSpec.describe "Leaderboard Request" do
     leaders = response_body[:data]
 
     expect(leaders).to be_an(Array)
+    expect(leaders.count).to eq(10)
 
     leaders.each do |leader|
       expect(leader).to be_a(Hash)

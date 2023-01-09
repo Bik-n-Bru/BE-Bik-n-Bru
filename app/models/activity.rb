@@ -57,10 +57,11 @@ class Activity < ApplicationRecord
   end
 
   def self.leaders
-    acts = Activity
+    self
       .joins(:user)
       .group("users.id")
       .select("sum(activities.num_drinks) as beers, sum(activities.lbs_carbon_saved) as carbon, sum(distance) as miles, users.username")
       .order(miles: :desc)
+      .limit(10)
   end
 end
