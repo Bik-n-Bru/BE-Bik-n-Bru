@@ -26,12 +26,12 @@ RSpec.describe "Leaderboard Request" do
       expect(leader[:attributes]).to be_a(Hash)
       expect(leader[:attributes]).to have_key(:username)
       expect(leader[:attributes][:username]).to be_a(String)
-      expect(leader[:attributes]).to have_key(:total_miles)
-      expect(leader[:attributes][:total_miles]).to be_a(Float)
-      expect(leader[:attributes]).to have_key(:total_beers)
-      expect(leader[:attributes][:total_beers]).to be_a(Integer)
-      expect(leader[:attributes]).to have_key(:total_carbon)
-      expect(leader[:attributes][:total_carbon]).to be_a(Float)
+      expect(leader[:attributes]).to have_key(:miles)
+      expect(leader[:attributes][:miles]).to be_a(Float)
+      expect(leader[:attributes]).to have_key(:beers)
+      expect(leader[:attributes][:beers]).to be_a(Integer)
+      expect(leader[:attributes]).to have_key(:co2_saved)
+      expect(leader[:attributes][:co2_saved]).to be_a(Float)
     end
   end
 end

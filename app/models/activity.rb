@@ -37,7 +37,9 @@ class Activity < ApplicationRecord
     when "IPA"
       beer_calories = 300.0
     when "Pilsner"
-      beer_calories = 250.0
+      beer_calories = 200.0
+    when "Light Beer"
+      beer_calories = 104.0
     end
     (self.calories / beer_calories).round unless drink_type.nil?
   end
@@ -52,5 +54,13 @@ class Activity < ApplicationRecord
 
   def create_badges
     user.create_badges
+  end
+
+  def self.leaders
+    acts = Activity
+      .joins(:user)
+      .group("users.id")
+      .select("sum(activities.num_drinks) as beers, sum(activities.lbs_carbon_saved) as carbon, sum(distance) as miles, users.username")
+      .order(miles: :desc)
   end
 end

@@ -62,7 +62,7 @@ RSpec.describe Activity, type: :model do
         activity_1 = create(:activity, calories: 980, drink_type: "Pilsner")
         activity_2 = create(:activity, calories: 402, drink_type: "IPA")
 
-        expect(activity_1.calculate_num_drinks).to eq(4)
+        expect(activity_1.calculate_num_drinks).to eq(5)
         expect(activity_2.calculate_num_drinks).to eq(1)
       end
     end

@@ -26,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
 
   def leaderboard
     leaders = Activity.leaders
-    render json: LeaderboardSerializer.new(leaders)
+    render json: LeaderboardSerializer.list(leaders)
   end
 
   private 
