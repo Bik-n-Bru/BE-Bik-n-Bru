@@ -24,6 +24,11 @@ class Api::V1::UsersController < ApplicationController
     render json: UserSerializer.new(User.update(params[:id], user_params))
   end
 
+  def leaderboard
+    leaders = Activity.leaders
+    render json: LeaderboardSerializer.new(leaders)
+  end
+
   private 
 
     def user_params
