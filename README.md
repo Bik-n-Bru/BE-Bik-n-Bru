@@ -1,6 +1,5 @@
-# README
-
 <h1 align="center">Bīk-n-Brü API</h1>
+<div align="center"><img src="doc/images/bikesbrews_giphy.gif" alt="Deschutes Brewery GIF" class="center" width="300" height="300"></div>
 
 <br>
  
@@ -8,14 +7,14 @@ This repo is the Back End portion of the Bīk-n-Brü project built by Mod 3 stud
 
 The purpose of this app is to encourage people to ride their bikes to bars to decrease their carbon footprint by gamifying the exercise/bar experience!
 
-Visit our Front End Site!
-   *[Bīk-n-Brü](https://fe-bik-n-bru.herokuapp.com/)*
+Visit our [Bīk-n-Brü Site](https://fe-bik-n-bru.herokuapp.com/)! Or check out the Front End [Github Repo](https://github.com/Bik-n-Bru/FE-Bik-n-Bru-/).
 <br>
 
 # Table of Contents
-- [Setup](#setup)
+- [Developer Setup](#setup)
 - [Tech & Tools Used](#tech-and-tools)
 - [Endpoints](#endpoints)
+- [Contributors](#contributors)
 
 
 ## Tech and Tools
@@ -26,11 +25,11 @@ Visit our Front End Site!
   - ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
   - <img src="app/images/CircleCi_logo.png" alt="Circle Ci" height="30">
 
-## Setup
+## Developer Setup
   If you would like to demo this API on your local machine:
 <ol>
-  <li> Ensure you have the prerequisites or equivelent </li>
-  <li> Clone this repo and navigate to the root folder <code>cd BE-Bik-n-Bru</code></li>
+  <li> Ensure you have Ruby 2.7.4 and Rails 5.2.8 installed </li>
+  <li> Fork and clone down this repo and navigate to the root folder <code>cd BE-Bik-n-Bru</code></li>
   <li> Run <code>bundle install</code> </li>
   <li> Run <code>rails db:{drop,create,migrate,seed}</code> </li>
   <li> (Optional) To run the test suite, run <code>bundle exec rspec spec</code> </li>
@@ -53,95 +52,436 @@ Default host is <code>http://localhost:3000</code>
  
 ## Endpoints
 
-Strava:<br>
-This endpoint is used to our OAuth and to collect user data that can be used for other queries
-- Sign in using Strava Oauth
-
-  - GET "/api/v3/oauth/token" 
-  ```
-        client_id = ENV['strava_client_id'] 
-        client_secret = ENV['strava_client_secret']   
-        code = ReplaceWithCode 
-        grant_type = authorization_code
-  ```
-
-Back-End Service Api calls 
   - Base URL https://be-bik-n-bru.herokuapp.com
 
-- Find User by Bīk-n-Brü id
-  - GET "/api/v1/users/#{id}
+<details close>
+<summary> Get User by Bīk-n-Brü id</summary><br>
+
+  - GET "/api/v1/users/:id"<br>
+  - Sample response body: <br>
     ```
-    {
-            "data": {
-                "id": "2",
-                "type": "user",
+      {
+        "data": {
+            "id": "2",
+            "type": "user",
+            "attributes": {
+                "username": "testcase",
+                "token": "12345abcde",
+                "athlete_id": "12345",
+                "city": "Not a city",
+                "state": "Not a state"
+              }
+          }
+      }
+    ```
+  
+</details>
+
+<details close>
+<summary> Get User by Strava Athlete id</summary><br>
+
+  - GET "/api/v1/users/:athlete_id?q=athlete_id"
+  - Sample response body: 
+    ```
+      {
+        "data": {
+            "id": "2",
+            "type": "user",
+            "attributes": {
+                "username": "testcase",
+                "token": "12345abcde",
+                "athlete_id": "12345",
+                "city": "Not a city",
+                "state": "Not a state"
+              }
+          }
+      }
+    ```
+</details>
+
+<details close>
+<summary> Get Leaderboard Information</summary><br>
+
+  - GET "/api/v1/leaderboard"
+  - Sample response body: 
+    ```
+      {
+        "data": [
+          {
+              "id": "",
+              "type": "leader",
+              "attributes": {
+                  "username": "Muzgash",
+                  "miles": 3039.5499999999997,
+                  "beers": 363,
+                  "co2_saved": 2735.6200000000003
+              }
+          },
+          {
+              "id": "",
+              "type": "leader",
+              "attributes": {
+                  "username": "Eofor",
+                  "miles": 3027.1300000000006,
+                  "beers": 365,
+                  "co2_saved": 2724.4199999999996
+              }
+          },
+          {
+              "id": "",
+              "type": "leader",
+              "attributes": {
+                  "username": "Gléowine",
+                  "miles": 3021.000000000001,
+                  "beers": 360,
+                  "co2_saved": 2718.93
+              }
+          },
+          {...},
+          {...},
+        ...
+        ]
+      }
+    ```
+</details>
+
+
+<details close>
+<summary> Update a User's Information</summary><br>
+
+  - PATCH "/api/v1/users/:user_id"<br>
+  - Sample request body: <br>
+    ```
+       {
+          "user": {
+              "data": {
+                          "city":"Eugene", 
+                          "state":"Oregon"
+                      }
+          }
+      }
+    ```
+  - Sample response body: <br>
+    ```
+      {
+        :data=>{
+            :id=>"5",
+            :type=>"user",
+            :attributes=>{
+                :username=>"testcase",
+                :token=>"12345abcde",
+                :athlete_id=>"12345",
+                :city=>"Eugene",
+                :state=>"Oregon"
+                }, 
+                  :relationships=>
+                    {:activities=>{
+                      :data=>[]
+                  }
+              }
+          }
+      }
+    ```
+</details>
+
+<details close>
+<summary> Create A New User</summary><br>
+
+  - POST "/api/v1/users"<br>
+  - Sample request body: <br>
+    ```
+       {
+          "user": {
+              "data": {
+                          "athlete_id":"12345678910112", 
+                          "username":"testcase5", 
+                          "token":"12345abcde"
+                      }
+          }
+      }
+    ```
+  - Sample response body: <br>
+    ```
+      {
+        :data=>{
+            :id=>"5",
+            :type=>"user",
+            :attributes=>{
+                :username=>"testcase5",
+                :token=>"12345abcde",
+                "athlete_id":"12345678910112",
+                :city=>"Eugene",
+                :state=>"Oregon"
+                }, 
+                  :relationships=>
+                    {:activities=>{
+                      :data=>[]
+                  }
+              }
+          }
+      }
+    ```
+</details>
+
+<details close>
+<summary> Get Breweries in a User's Local Area</summary><br>
+
+  - GET "/api/v1/breweries/:user_id"
+  - Sample response body:
+    ```
+      {
+        "data": [
+            {
+                "id": "10-barrel-brewing-co-denver-denver",
+                "type": "brewery",
                 "attributes": {
-                    "username": "testcase",
-                    "token": "12345abcde",
-                    "athlete_id": "12345",
-                    "city": "Not a city",
-                    "state": "Not a state"
+                    "name": "10 Barrel Brewing Co - Denver",
+                    "street_address": "2620 Walnut St",
+                    "city": "Denver",
+                    "state": "Colorado",
+                    "zipcode": "80205-2231",
+                    "phone": "7205738992",
+                    "website_url": null
+                }
+            },
+            {
+                "id": "14er-brewing-company-denver",
+                "type": "brewery",
+                "attributes": {
+                    "name": "14er Brewing Company",
+                    "street_address": "2801 Walnut St",
+                    "city": "Denver",
+                    "state": "Colorado",
+                    "zipcode": "80205-2235",
+                    "phone": "7207731437",
+                    "website_url": "http://www.14erBrewing.com"
+                }
+            },
+            {
+                "id": "aero-craft-brewing-denver",
+                "type": "brewery",
+                "attributes": {
+                    "name": "Aero Craft Brewing",
+                    "street_address": null,
+                    "city": "Denver",
+                    "state": "Colorado",
+                    "zipcode": "80212-2199",
+                    "phone": "3039185446",
+                    "website_url": "http://www.aerocraft.beer"
+                }
+            },
+            {...},
+            {...},
+          ...
+        ]
+      }
+    ```
+</details>
+
+<details close>
+<summary> Get Index of User Activities</summary><br>
+
+  - GET "/api/v1/users/:user_id/activities"<br>
+  - Sample response body: <br>
+    ```
+      {
+        "data": [
+            {
+                "id": "701",
+                "type": "activity",
+                "attributes": {
+                    "brewery_name": "Mirella Jenkins",
+                    "distance": 92.64,
+                    "calories": 2779,
+                    "num_drinks": 11,
+                    "drink_type": "Racer 5 India Pale Ale, Bear Republic Bre",
+                    "dollars_saved": 14.74,
+                    "lbs_carbon_saved": 83.38,
+                    "created_at": "2023-01-10T13:18:37.335Z",
+                    "user_id": 15
+                },
+                "relationships": {
+                    "user": {
+                        "data": {
+                            "id": "15",
+                            "type": "user"
+                        }
                     }
                 }
-            }
-      ```
-
-- Find Users with information for leaderboard
-  - GET "/api/v1/leaderboard"
-  ```
-    {
-            data: [
-              {
-                attributes: {
-                  username: 'Lance',
-                  miles: '12897',
-                  beers: '527',
-                  co2_saved: '61'
-                }
-              }
-            ]
-          },
-  ```
-
-- Update a User's Information
-  - PATCH "/api/v1/users/#{user_id}"
-  ```
-  {
-          :data=> {
-              :id=>"5",
-              :type=>"user",
-              :attributes=>{
-                  :username=>"testcase",
-                  :token=>"12345abcde",
-                  :athlete_id=>"12345",
-                  :city=>"Eugene",
-                  :state=>"Oregon"
-                  }, 
-                    :relationships=>
-                      {:activities=>{
-                        :data=>[]}}}}'
-  ```
-
-
-- Find Breweries by city and state
-  - GET "/api/v1/breweries/#{user.id}"
-  ```
-  {
-          :data=>[
-            {
-            :id=>"10-56-brewing-company-knox",
-            :type=>"brewery",
-            :attributes=>{
-                  :name=>"10-56 Brewing Company",
-                  :street_address=>"400 Brown Cir",
-                  :city=>"Knox",
-                  state=>"Indiana",
-                  :zipcode=>"46534",
-                  :phone=>"6308165790",
-                  :website_url=>nil
-                  }
             },
-  ```
+            {
+                "id": "702",
+                "type": "activity",
+                "attributes": {
+                    "brewery_name": "Henry Adams",
+                    "distance": 65.33,
+                    "calories": 1959,
+                    "num_drinks": 8,
+                    "drink_type": "Stone IPA",
+                    "dollars_saved": 10.39,
+                    "lbs_carbon_saved": 58.8,
+                    "created_at": "2023-01-10T13:18:37.354Z",
+                    "user_id": 15
+                },
+                "relationships": {
+                    "user": {
+                        "data": {
+                            "id": "15",
+                            "type": "user"
+                        }
+                    }
+                }
+            },
+            {...},
+            {...},
+          ...
+        ]
+      }
+    ```
+</details>
+
+<details close>
+<summary> Get Activity by Bīk-n-Brü Activity id</summary><br>
+
+  - GET "/api/v1/acitivities/:activity_id"<br>
+  - Sample response body: <br>
+    ```
+      {
+          "data": {
+              "id": "701",
+              "type": "activity",
+              "attributes": {
+                  "brewery_name": "Mirella Jenkins",
+                  "distance": 92.64,
+                  "calories": 2779,
+                  "num_drinks": 11,
+                  "drink_type": "Racer 5 India Pale Ale, Bear Republic Bre",
+                  "dollars_saved": 14.74,
+                  "lbs_carbon_saved": 83.38,
+                  "created_at": "2023-01-10T13:18:37.335Z",
+                  "user_id": 15
+              },
+              "relationships": {
+                  "user": {
+                      "data": {
+                          "id": "15",
+                          "type": "user"
+                      }
+                  }
+              }
+          }
+      }
+    ```
+  
+</details>
+
+<details close>
+<summary> Create A New Activity</summary><br>
+
+  - POST "/api/v1/activities"<br>
+  - Sample request body: <br>
+    ```
+      {
+          "activity": {
+              "data": {
+                          "brewery_name": "Name",
+                          "drink_type": "IPA",
+                          "user_id": "15"
+                      }
+          }
+      }
+    ```
+  - Sample response body: <br>
+    ```
+      {
+          "data": {
+              "id": "701",
+              "type": "activity",
+              "attributes": {
+                  "brewery_name": "Name",
+                  "distance": 92.64,
+                  "calories": 2779,
+                  "num_drinks": 11,
+                  "drink_type": "IPA",
+                  "dollars_saved": 14.74,
+                  "lbs_carbon_saved": 83.38,
+                  "created_at": "2023-01-10T13:18:37.335Z",
+                  "user_id": 15
+              },
+              "relationships": {
+                  "user": {
+                      "data": {
+                          "id": "15",
+                          "type": "user"
+                      }
+                  }
+              }
+          }
+      }
+    ```
+</details>
+
+<details close>
+<summary> Get Index of User Badges</summary><br>
+
+  - GET "/api/v1/users/:user_id/badges"<br>
+  - Sample response body: <br>
+    ```
+      {
+        "data": [
+            {
+                "id": "141",
+                "type": "badge",
+                "attributes": {
+                    "title": "Completed 1 Activity"
+                },
+                "relationships": {
+                    "user": {
+                        "data": {
+                            "id": "15",
+                            "type": "user"
+                        }
+                    }
+                }
+            },
+            {
+                "id": "142",
+                "type": "badge",
+                "attributes": {
+                    "title": "Cycled 100 miles"
+                },
+                "relationships": {
+                    "user": {
+                        "data": {
+                            "id": "15",
+                            "type": "user"
+                        }
+                    }
+                }
+            },
+            {
+                "id": "143",
+                "type": "badge",
+                "attributes": {
+                    "title": "Cycled 500 miles"
+                },
+                "relationships": {
+                    "user": {
+                        "data": {
+                            "id": "15",
+                            "type": "user"
+                        }
+                    }
+                }
+            },
+            {...},
+            {...},
+          ...
+        ]
+      }
+    ```
+  
+</details>
 
 
 # Contributors
