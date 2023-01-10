@@ -7,7 +7,7 @@ This repo is the Back End portion of the Bīk-n-Brü project built by Mod 3 stud
 
 The purpose of this app is to encourage people to ride their bikes to bars to decrease their carbon footprint by gamifying the exercise/bar experience!
 
-Visit our [Bīk-n-Brü Site](https://fe-bik-n-bru.herokuapp.com/)! Or check out the Front End [Github Repo](https://github.com/Bik-n-Bru/FE-Bik-n-Bru-/).
+Visit our [Bīk-n-Brü Site](https://bik-n-bru.herokuapp.com/)! Or check out the Front End [Github Repo](https://github.com/Bik-n-Bru/FE-Bik-n-Bru-/).
 <br>
 
 # Table of Contents
