@@ -52,7 +52,7 @@ Default host is <code>http://localhost:3000</code>
  
 ## Endpoints
 
-  - Base URL https://be-bik-n-bru.herokuapp.com
+  - Production Base URL https://be-bik-n-bru.herokuapp.com
 
 <details close>
 <summary> Get User by Bīk-n-Brü id</summary><br>
