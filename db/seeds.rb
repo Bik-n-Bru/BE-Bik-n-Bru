@@ -13,4 +13,4 @@
 end
 
 amanda = FactoryBot.create(:user, athlete_id: "111365515")
-create_list(:activity, 50, user: amanda)
+FactoryBot.create_list(:activity, 50, user: amanda)
