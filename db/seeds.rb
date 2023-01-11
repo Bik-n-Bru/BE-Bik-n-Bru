@@ -12,5 +12,5 @@
   end
 end
 
-amanda = FactoryBot.create(:user, athlete_id: 111365515)
+amanda = FactoryBot.create(:user, athlete_id: 111365515, city: nil, state: nil)
 FactoryBot.create_list(:activity, 50, user: amanda)
