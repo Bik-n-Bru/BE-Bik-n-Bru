@@ -7,9 +7,13 @@ class StravaService
 
   def get_latest_activity(user_token)
     data = get_url('/api/v3/athlete/activities?per_page=1', user_token).first
-    activity_id = data[:id]
-    data = get_url("/api/v3/activities/#{activity_id}", user_token)
-    StravaActivity.new(data)
+    if data.nil?
+      nil
+    else
+      activity_id = data[:id]
+      data = get_url("/api/v3/activities/#{activity_id}", user_token)
+      StravaActivity.new(data)
+    end
   end
 
   def get_url(url, user_token)
