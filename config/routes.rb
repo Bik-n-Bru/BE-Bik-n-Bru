@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   
   get '/api/v1/breweries/:user_id', to: 'api/v1/breweries#search'
   get '/api/v1/leaderboard', to: 'api/v1/users#leaderboard'
+  get '/api/v1/gas_price/:user_id', to: 'api/v1/gas_prices#show'
 end
