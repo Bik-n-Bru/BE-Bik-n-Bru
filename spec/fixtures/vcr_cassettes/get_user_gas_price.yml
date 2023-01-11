@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.collectapi.com/gasPrice/stateUsaPrice?state=TN
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - apikey 7sRia4D4j8Y3aU5s9VD4MM:2q6Ifm2XpnsobKgIPrA3sc
+      User-Agent:
+      - Faraday v2.7.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 11 Jan 2023 00:25:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Powered-By:
+      - Express
+      Etag:
+      - W/"669-V12QSYBMcQGerCVPfWELIkKCXd4"
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=hnFbYRNFTkm%2BwyDjIseicDpLSULyQx9EQY7DO8oOLIKEWgfgyllJ2qLex6%2FXIlUsdk6ATyeYGy19hwXw6%2BNGF3sk17tbpmSE6erMSv1OH3lEXuy3gHpj09oPEDU4qwNR8g7IwLg%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      Referrer-Policy:
+      - strict-origin
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7879840a39c52cc3-DFW
+    body:
+      encoding: ASCII-8BIT
+      string: '{"success":true,"result":{"state":{"currency":"usd","name":"Tennessee","lowerName":"tennessee","gasoline":"2.975","midGrade":"3.343","premium":"3.709","diesel":"4.398"},"cities":[{"currency":"usd","gasoline":"2.906","midGrade":"3.262","premium":"3.639","diesel":"4.270","name":"Chattanooga
+        (TN only)","lowerName":"chattanooga (tn only)"},{"currency":"usd","gasoline":"2.884","midGrade":"3.279","premium":"3.588","diesel":"4.099","name":"Clarksville-Hopkinsville
+        (TN only)","lowerName":"clarksville-hopkinsville (tn only)"},{"currency":"usd","gasoline":"3.002","midGrade":"3.323","premium":"3.711","diesel":"4.415","name":"Cleveland","lowerName":"cleveland"},{"currency":"usd","gasoline":"3.009","midGrade":"3.501","premium":"3.813","diesel":"4.572","name":"Jackson","lowerName":"jackson"},{"currency":"usd","gasoline":"3.068","midGrade":"3.403","premium":"3.703","diesel":"4.483","name":"Johnson
+        City","lowerName":"johnson city"},{"currency":"usd","gasoline":"3.023","midGrade":"3.315","premium":"3.649","diesel":"4.552","name":"Kingsport-Bristol","lowerName":"kingsport-bristol"},{"currency":"usd","gasoline":"2.997","midGrade":"3.334","premium":"3.700","diesel":"4.617","name":"Knoxville","lowerName":"knoxville"},{"currency":"usd","gasoline":"3.004","midGrade":"3.462","premium":"3.840","diesel":"4.588","name":"Memphis
+        (TN only)","lowerName":"memphis (tn only)"},{"currency":"usd","gasoline":"3.050","midGrade":"3.376","premium":"3.780","diesel":"4.708","name":"Morristown","lowerName":"morristown"},{"currency":"usd","gasoline":"2.962","midGrade":"3.336","premium":"3.703","diesel":"4.247","name":"Nashville","lowerName":"nashville"}]}}'
+  recorded_at: Wed, 11 Jan 2023 00:25:33 GMT
+recorded_with: VCR 6.1.0
