@@ -2,7 +2,9 @@ class Api::V1::ActivitiesController < ApplicationController
   def create
     activity = Activity.new(activity_params)
     activity.get_attributes if activity_params[:user_id]
-    if Activity.where(strava_activity_id: activity.strava_activity_id).exists?
+    if activity.strava_activity_id.nil? && activity.user_id != nil
+      render json: ErrorSerializer.no_activities, status: 404
+    elsif Activity.where(strava_activity_id: activity.strava_activity_id).exists?
       render json: ErrorSerializer.already_exists, status: :bad_request
     elsif activity.save
       render json: ActivitySerializer.new(activity)

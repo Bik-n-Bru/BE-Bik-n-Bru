@@ -19,4 +19,18 @@ class ErrorSerializer
       "errors": ["This strava activity has already been logged"]
     }
   end
+
+  def self.missing_state
+    {
+      "message": "Request is missing necessary information",
+      "errors": ["The user has not provided a valid State"]
+    }
+  end
+
+  def self.no_activities
+    {
+      "message": "No Record Found",
+      "errors": ["The user has no valid activities"]
+    }
+  end
 end

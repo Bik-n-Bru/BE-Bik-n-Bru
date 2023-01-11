@@ -86,6 +86,37 @@ describe "Activity API" do
     expect(response_data[:errors]).to eq(["Num drinks can't be blank","Drink type can't be blank"])
   end
 
+  it "returns a 404 error if there are no activities" do 
+    user = create(:user, state: "Colorado")
+    user_id = user.id
+    user_token = user.token
+
+    stub_request(:get, "https://www.strava.com/api/v3/athlete/activities?per_page=1")
+      .with(headers: {"Authorization" => "Bearer #{user_token}"})
+      .to_return(status: 200, body: "[]")
+
+    stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+      .to_return(status: 200, body: response_body_3)
+
+    activity_params = {
+                        data: {
+                          brewery_name: "Name",
+                          drink_type: "IPA",
+                          user_id: user_id
+                        }
+                      }
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    expect(Activity.all.count).to eq(0)
+
+    post "/api/v1/activities", headers: headers, params: JSON.generate(activity: activity_params)
+
+    response_data = JSON.parse(response.body, symbolize_names: true)
+    
+    expect(Activity.all.count).to eq(0)
+    expect(response.status).to eq(404)
+  end
+
   it "catches when there's no user ID and doesn't make the strava API call, but returns an error" do 
     user = create(:user, state: "Colorado")
     user_id = user.id

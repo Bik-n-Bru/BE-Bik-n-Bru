@@ -15,15 +15,23 @@ class Activity < ApplicationRecord
 
   def get_attributes
     update_from_strava_service
-    update_from_gas_service
+    if update_from_strava_service.nil?
+      nil
+    else
+      update_from_gas_service
+    end
   end
 
   def update_from_strava_service
     strava_activity = strava_service.get_latest_activity(user.token)
-    self.distance = (strava_activity.distance_in_meters / 1609.344).round(6) 
-    self.calories = strava_activity.calories 
-    self.num_drinks = calculate_num_drinks
-    self.strava_activity_id = strava_activity.id
+    if strava_activity.nil?
+      nil
+    else
+      self.distance = (strava_activity.distance_in_meters / 1609.344).round(6) 
+      self.calories = strava_activity.calories 
+      self.num_drinks = calculate_num_drinks
+      self.strava_activity_id = strava_activity.id
+    end
   end
 
   def update_from_gas_service
