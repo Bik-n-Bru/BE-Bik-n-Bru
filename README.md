@@ -10,12 +10,15 @@ The purpose of this app is to encourage people to ride their bikes to bars to de
 Visit our [Bīk-n-Brü Site](https://bik-n-bru.herokuapp.com/)! Or check out the Front End [Github Repo](https://github.com/Bik-n-Bru/FE-Bik-n-Bru-/).
 <br>
 
-# Table of Contents
-- [Developer Setup](#setup)
+## Table of Contents
+- [Database Schema](#database-schema)
 - [Tech & Tools Used](#tech-and-tools)
+- [Developer Setup](#setup)
 - [Endpoints](#endpoints)
 - [Contributors](#contributors)
 
+## Database Schema
+<img src="doc/images/schema.png" alt="db schema" class="center" width="500" height="500">
 
 ## Tech and Tools
   - ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white) **2.7.4**
@@ -483,8 +486,24 @@ Default host is <code>http://localhost:3000</code>
   
 </details>
 
+<details close>
+<summary> Get Current Gas Price For User</summary><br>
 
-# Contributors
+  - GET "/api/v1/gas_price/:user_id"<br>
+  - Sample response body: <br>
+    ```
+      {
+          "data": {
+              "state": "Colorado",
+              "gas_price": 3.129
+          }
+      }
+    ```
+  
+</details>
+
+
+## Contributors
 
 ### Project Team:
 <table>
