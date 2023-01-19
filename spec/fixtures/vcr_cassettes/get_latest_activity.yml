@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer 96c401bc3baf0c0d272c30c473cf06bded9ad3ba
+      - Bearer b346fcd076be56c02c30d9c7f511b93605126346
       User-Agent:
       - Faraday v2.7.2
       Accept-Encoding:
@@ -27,12 +27,12 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 07 Jan 2023 19:14:46 GMT
+      - Thu, 19 Jan 2023 19:08:49 GMT
       Via:
-      - 1.1 linkerd, 1.1 linkerd, 1.1 9b688924e5b0f0b5e4c639d19cb145f0.cloudfront.net
+      - 1.1 linkerd, 1.1 linkerd, 1.1 befcfd7ee847a3c890471f27612dbcde.cloudfront.net
         (CloudFront)
       Etag:
-      - W/"b86df06088de1da8df37f7b0feb6e72e"
+      - W/"1869e25089870a9fec162e0f7caf6285"
       Vary:
       - Origin
       Server:
@@ -40,7 +40,7 @@ http_interactions:
       Status:
       - 200 OK
       X-Request-Id:
-      - 13912014-3f07-4d80-84b4-0aa1384fd78c
+      - e7acc56c-0004-443e-9dd6-26e621827cd8
       Cache-Control:
       - max-age=0, private, must-revalidate
       Referrer-Policy:
@@ -52,7 +52,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '100,1000'
       X-Ratelimit-Usage:
-      - '13,17'
+      - '1,1'
       X-Download-Options:
       - noopen
       X-Content-Type-Options:
@@ -64,22 +64,23 @@ http_interactions:
       X-Amz-Cf-Pop:
       - DEN52-P2
       X-Amz-Cf-Id:
-      - bQOxkIiS9R-tAiPkY_vuEVe5E_mJgRwt4nRE2tLLh1_cVm7lTLZhOA==
+      - KvAWRWe6WFzYHm8-10Ls8-mBuKw-nY6Q35EisQIOKQmCejsJl_9c9A==
     body:
       encoding: ASCII-8BIT
-      string: '[{"resource_state":2,"athlete":{"id":16804102,"resource_state":1},"name":"24:19
-        row","distance":5016.0,"moving_time":1460,"elapsed_time":1460,"total_elevation_gain":0,"type":"Rowing","sport_type":"Rowing","id":8274604634,"start_date":"2022-12-21T13:39:40Z","start_date_local":"2022-12-21T06:39:40Z","timezone":"(GMT-07:00)
-        America/Denver","utc_offset":-25200.0,"location_city":null,"location_state":null,"location_country":null,"achievement_count":0,"kudos_count":2,"comment_count":0,"athlete_count":1,"photo_count":0,"map":{"id":"a8274604634","summary_polyline":"","resource_state":2},"trainer":true,"commute":false,"manual":false,"private":false,"visibility":"everyone","flagged":false,"gear_id":null,"start_latlng":[],"end_latlng":[],"average_speed":3.436,"max_speed":3.82,"average_cadence":34.6,"average_watts":114.0,"max_watts":133,"weighted_average_watts":114,"kilojoules":166.5,"device_watts":true,"has_heartrate":false,"heartrate_opt_out":false,"display_hide_heartrate_option":false,"upload_id":8869316394,"upload_id_str":"8869316394","external_id":"70546688.fit","from_accepted_tag":false,"pr_count":0,"total_photo_count":1,"has_kudoed":false}]'
-  recorded_at: Sat, 07 Jan 2023 19:14:46 GMT
+      string: '[{"resource_state":2,"athlete":{"id":111365515,"resource_state":1},"name":"Morning
+        Run","distance":4502.6,"moving_time":1272,"elapsed_time":1312,"total_elevation_gain":0,"type":"Run","sport_type":"Run","workout_type":null,"id":8412762253,"start_date":"2023-01-18T16:17:40Z","start_date_local":"2023-01-18T09:17:40Z","timezone":"(GMT-07:00)
+        Mexico/BajaSur","utc_offset":-25200.0,"location_city":null,"location_state":null,"location_country":"United
+        States","achievement_count":0,"kudos_count":1,"comment_count":0,"athlete_count":1,"photo_count":0,"map":{"id":"a8412762253","summary_polyline":"","resource_state":2},"trainer":true,"commute":false,"manual":false,"private":false,"visibility":"followers_only","flagged":false,"gear_id":null,"start_latlng":[],"end_latlng":[],"average_speed":3.54,"max_speed":4.613,"average_cadence":81.0,"average_temp":21,"has_heartrate":true,"average_heartrate":150.3,"max_heartrate":174.0,"heartrate_opt_out":false,"display_hide_heartrate_option":true,"upload_id":9024561855,"upload_id_str":"9024561855","external_id":"garmin_ping_255976212004","from_accepted_tag":false,"pr_count":0,"total_photo_count":0,"has_kudoed":false}]'
+  recorded_at: Thu, 19 Jan 2023 19:08:49 GMT
 - request:
     method: get
-    uri: https://www.strava.com/api/v3/activities/8274604634
+    uri: https://www.strava.com/api/v3/activities/8412762253
     body:
       encoding: US-ASCII
       string: ''
     headers:
       Authorization:
-      - Bearer 96c401bc3baf0c0d272c30c473cf06bded9ad3ba
+      - Bearer b346fcd076be56c02c30d9c7f511b93605126346
       User-Agent:
       - Faraday v2.7.2
       Accept-Encoding:
@@ -98,12 +99,12 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 07 Jan 2023 19:14:46 GMT
+      - Thu, 19 Jan 2023 19:08:50 GMT
       Via:
-      - 1.1 linkerd, 1.1 linkerd, 1.1 025e84e972a461c1dd140ac5fbbbd0aa.cloudfront.net
+      - 1.1 linkerd, 1.1 linkerd, 1.1 16d72e0791ff01fc4470d27fc024527a.cloudfront.net
         (CloudFront)
       Etag:
-      - W/"01c00591ed9557909505c79086b6b0c6"
+      - W/"d5a50b65efc56a0b7c9fe4c72a23ee13"
       Vary:
       - Origin
       Server:
@@ -111,7 +112,7 @@ http_interactions:
       Status:
       - 200 OK
       X-Request-Id:
-      - d1adcdda-21ae-459a-8907-9e75d08646fb
+      - 29cc2435-dbbb-4c38-82b2-0608ba87907b
       Cache-Control:
       - max-age=0, private, must-revalidate
       Referrer-Policy:
@@ -123,7 +124,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '100,1000'
       X-Ratelimit-Usage:
-      - '14,18'
+      - '2,2'
       X-Download-Options:
       - noopen
       X-Content-Type-Options:
@@ -135,16 +136,16 @@ http_interactions:
       X-Amz-Cf-Pop:
       - DEN52-P2
       X-Amz-Cf-Id:
-      - MGrC8Wlc9pvRrmwGEhpjjw6z0hmuB0AkHXEENn-33dfAWxZYxK1WrA==
+      - 1S4gyLemSULnVegN1N-2edP7srSeWsVcWrav7XH8TyaNrJKqp237xA==
     body:
       encoding: ASCII-8BIT
-      string: '{"resource_state":3,"athlete":{"id":16804102,"resource_state":1},"name":"24:19
-        row","distance":5016.0,"moving_time":1460,"elapsed_time":1460,"total_elevation_gain":0,"type":"Rowing","sport_type":"Rowing","id":8274604634,"start_date":"2022-12-21T13:39:40Z","start_date_local":"2022-12-21T06:39:40Z","timezone":"(GMT-07:00)
-        America/Denver","utc_offset":-25200.0,"location_city":null,"location_state":null,"location_country":null,"achievement_count":0,"kudos_count":2,"comment_count":0,"athlete_count":1,"photo_count":0,"map":{"id":"a8274604634","polyline":"","resource_state":3,"summary_polyline":""},"trainer":true,"commute":false,"manual":false,"private":false,"visibility":"everyone","flagged":false,"gear_id":null,"start_latlng":[],"end_latlng":[],"average_speed":3.436,"max_speed":3.82,"average_cadence":34.6,"average_watts":114.0,"max_watts":133,"weighted_average_watts":114,"kilojoules":166.5,"device_watts":true,"has_heartrate":false,"heartrate_opt_out":false,"display_hide_heartrate_option":false,"upload_id":8869316394,"upload_id_str":"8869316394","external_id":"70546688.fit","from_accepted_tag":false,"pr_count":0,"total_photo_count":1,"has_kudoed":false,"description":null,"calories":277.0,"perceived_exertion":null,"prefer_perceived_exertion":null,"segment_efforts":[],"splits_metric":[{"distance":1004.9,"elapsed_time":295,"elevation_difference":null,"moving_time":295,"split":1,"average_speed":3.41,"average_grade_adjusted_speed":null,"pace_zone":0},{"distance":1000.1,"elapsed_time":287,"elevation_difference":null,"moving_time":287,"split":2,"average_speed":3.48,"average_grade_adjusted_speed":null,"pace_zone":0},{"distance":996.3,"elapsed_time":288,"elevation_difference":null,"moving_time":288,"split":3,"average_speed":3.46,"average_grade_adjusted_speed":null,"pace_zone":0},{"distance":1004.2,"elapsed_time":294,"elevation_difference":null,"moving_time":294,"split":4,"average_speed":3.42,"average_grade_adjusted_speed":null,"pace_zone":0},{"distance":1010.5,"elapsed_time":296,"elevation_difference":null,"moving_time":296,"split":5,"average_speed":3.41,"average_grade_adjusted_speed":null,"pace_zone":0}],"splits_standard":[{"distance":1614.2,"elapsed_time":470,"elevation_difference":null,"moving_time":470,"split":1,"average_speed":3.43,"average_grade_adjusted_speed":null,"pace_zone":0},{"distance":1609.6,"elapsed_time":464,"elevation_difference":null,"moving_time":464,"split":2,"average_speed":3.47,"average_grade_adjusted_speed":null,"pace_zone":0},{"distance":1606.5,"elapsed_time":472,"elevation_difference":null,"moving_time":472,"split":3,"average_speed":3.4,"average_grade_adjusted_speed":null,"pace_zone":0},{"distance":185.7,"elapsed_time":54,"elevation_difference":null,"moving_time":54,"split":4,"average_speed":3.44,"average_grade_adjusted_speed":null,"pace_zone":0}],"laps":[{"id":27777336691,"resource_state":2,"name":"Lap
-        1","activity":{"id":8274604634,"resource_state":1},"athlete":{"id":16804102,"resource_state":1},"elapsed_time":300,"moving_time":300,"start_date":"2022-12-21T13:39:40Z","start_date_local":"2022-12-21T06:39:40Z","distance":1022.0,"start_index":0,"end_index":164,"total_elevation_gain":0,"average_speed":3.41,"max_speed":3.798,"average_cadence":34.4,"device_watts":true,"average_watts":114.4,"lap_index":1,"split":1},{"id":27777336692,"resource_state":2,"name":"Lap
-        2","activity":{"id":8274604634,"resource_state":1},"athlete":{"id":16804102,"resource_state":1},"elapsed_time":300,"moving_time":300,"start_date":"2022-12-21T13:44:42Z","start_date_local":"2022-12-21T06:44:42Z","distance":1044.99,"start_index":165,"end_index":332,"total_elevation_gain":0,"average_speed":3.48,"max_speed":3.82,"average_cadence":33.8,"device_watts":true,"average_watts":117.7,"lap_index":2,"split":2},{"id":27777336694,"resource_state":2,"name":"Lap
-        3","activity":{"id":8274604634,"resource_state":1},"athlete":{"id":16804102,"resource_state":1},"elapsed_time":300,"moving_time":300,"start_date":"2022-12-21T13:49:44Z","start_date_local":"2022-12-21T06:49:44Z","distance":1040.0,"start_index":333,"end_index":501,"total_elevation_gain":0,"average_speed":3.47,"max_speed":3.78,"average_cadence":33.9,"device_watts":true,"average_watts":116.1,"lap_index":3,"split":3},{"id":27777336696,"resource_state":2,"name":"Lap
-        4","activity":{"id":8274604634,"resource_state":1},"athlete":{"id":16804102,"resource_state":1},"elapsed_time":300,"moving_time":300,"start_date":"2022-12-21T13:54:42Z","start_date_local":"2022-12-21T06:54:42Z","distance":1022.99,"start_index":502,"end_index":667,"total_elevation_gain":0,"average_speed":3.41,"max_speed":3.74,"average_cadence":34.6,"device_watts":true,"average_watts":108.9,"lap_index":4,"split":4},{"id":27777336697,"resource_state":2,"name":"Lap
-        5","activity":{"id":8274604634,"resource_state":1},"athlete":{"id":16804102,"resource_state":1},"elapsed_time":259,"moving_time":259,"start_date":"2022-12-21T13:59:43Z","start_date_local":"2022-12-21T06:59:43Z","distance":886.0,"start_index":668,"end_index":811,"total_elevation_gain":0,"average_speed":3.42,"max_speed":3.74,"average_cadence":36.7,"device_watts":true,"average_watts":113.3,"lap_index":5,"split":5}],"photos":{"primary":{"unique_id":"70546688","urls":{"600":"https://dgtzuqphqg23d.cloudfront.net/RMerdJwzwQtLi3NVha968CRCDs_pmR4aTkEJwwJUDHo-768x512.jpg","100":"https://dgtzuqphqg23d.cloudfront.net/RMerdJwzwQtLi3NVha968CRCDs_pmR4aTkEJwwJUDHo-128x85.jpg"},"source":1,"media_type":1},"use_primary_photo":true,"count":1},"stats_visibility":[{"type":"heart_rate","visibility":"everyone"},{"type":"pace","visibility":"everyone"},{"type":"power","visibility":"everyone"},{"type":"speed","visibility":"everyone"},{"type":"calories","visibility":"everyone"}],"hide_from_home":false,"device_name":"Concept2","embed_token":"472e12abaead782ff03edd9b3b66a0038c290bae","available_zones":[]}'
-  recorded_at: Sat, 07 Jan 2023 19:14:46 GMT
+      string: '{"resource_state":3,"athlete":{"id":111365515,"resource_state":1},"name":"Morning
+        Run","distance":4502.6,"moving_time":1272,"elapsed_time":1312,"total_elevation_gain":0,"type":"Run","sport_type":"Run","workout_type":null,"id":8412762253,"start_date":"2023-01-18T16:17:40Z","start_date_local":"2023-01-18T09:17:40Z","timezone":"(GMT-07:00)
+        Mexico/BajaSur","utc_offset":-25200.0,"location_city":null,"location_state":null,"location_country":"United
+        States","achievement_count":0,"kudos_count":1,"comment_count":0,"athlete_count":1,"photo_count":0,"map":{"id":"a8412762253","polyline":"","resource_state":3,"summary_polyline":""},"trainer":true,"commute":false,"manual":false,"private":false,"visibility":"followers_only","flagged":false,"gear_id":null,"start_latlng":[],"end_latlng":[],"average_speed":3.54,"max_speed":4.613,"average_cadence":81.0,"average_temp":21,"has_heartrate":true,"average_heartrate":150.3,"max_heartrate":174.0,"heartrate_opt_out":false,"display_hide_heartrate_option":true,"upload_id":9024561855,"upload_id_str":"9024561855","external_id":"garmin_ping_255976212004","from_accepted_tag":false,"pr_count":0,"total_photo_count":0,"has_kudoed":false,"description":null,"calories":205.0,"perceived_exertion":null,"prefer_perceived_exertion":null,"segment_efforts":[],"splits_metric":[{"distance":1019.0,"elapsed_time":284,"elevation_difference":null,"moving_time":284,"split":1,"average_speed":3.59,"average_grade_adjusted_speed":null,"average_heartrate":134.77464788732394,"pace_zone":0},{"distance":997.3,"elapsed_time":356,"elevation_difference":null,"moving_time":315,"split":2,"average_speed":3.17,"average_grade_adjusted_speed":null,"average_heartrate":139.13483146067415,"pace_zone":0},{"distance":986.3,"elapsed_time":246,"elevation_difference":null,"moving_time":246,"split":3,"average_speed":4.01,"average_grade_adjusted_speed":null,"average_heartrate":158.08536585365854,"pace_zone":0},{"distance":1003.0,"elapsed_time":267,"elevation_difference":null,"moving_time":267,"split":4,"average_speed":3.76,"average_grade_adjusted_speed":null,"average_heartrate":164.65543071161048,"pace_zone":0},{"distance":497.0,"elapsed_time":159,"elevation_difference":null,"moving_time":159,"split":5,"average_speed":3.13,"average_grade_adjusted_speed":null,"average_heartrate":166.48427672955975,"pace_zone":0}],"splits_standard":[{"distance":1612.8,"elapsed_time":540,"elevation_difference":null,"moving_time":499,"split":1,"average_speed":3.23,"average_grade_adjusted_speed":null,"average_heartrate":133.55555555555554,"pace_zone":0},{"distance":1606.2,"elapsed_time":398,"elevation_difference":null,"moving_time":398,"split":2,"average_speed":4.04,"average_grade_adjusted_speed":null,"average_heartrate":159.06281407035175,"pace_zone":0},{"distance":1283.6,"elapsed_time":374,"elevation_difference":null,"moving_time":374,"split":3,"average_speed":3.43,"average_grade_adjusted_speed":null,"average_heartrate":164.98395721925132,"pace_zone":0}],"laps":[{"id":28316729876,"resource_state":2,"name":"Lap
+        1","activity":{"id":8412762253,"resource_state":1},"athlete":{"id":111365515,"resource_state":1},"elapsed_time":540,"moving_time":499,"start_date":"2023-01-18T16:17:40Z","start_date_local":"2023-01-18T09:17:40Z","distance":1609.34,"start_index":0,"end_index":98,"total_elevation_gain":0,"average_speed":3.23,"max_speed":4.186,"average_cadence":79.0,"device_watts":false,"average_heartrate":133.6,"max_heartrate":154.0,"lap_index":1,"split":1,"pace_zone":0},{"id":28316729878,"resource_state":2,"name":"Lap
+        2","activity":{"id":8412762253,"resource_state":1},"athlete":{"id":111365515,"resource_state":1},"elapsed_time":398,"moving_time":398,"start_date":"2023-01-18T16:26:45Z","start_date_local":"2023-01-18T09:26:45Z","distance":1609.34,"start_index":99,"end_index":179,"total_elevation_gain":0,"average_speed":4.04,"max_speed":4.589,"average_cadence":83.2,"device_watts":false,"average_heartrate":159.1,"max_heartrate":171.0,"lap_index":2,"split":2,"pace_zone":0},{"id":28316729880,"resource_state":2,"name":"Lap
+        3","activity":{"id":8412762253,"resource_state":1},"athlete":{"id":111365515,"resource_state":1},"elapsed_time":373,"moving_time":373,"start_date":"2023-01-18T16:33:23Z","start_date_local":"2023-01-18T09:33:23Z","distance":1283.9,"start_index":180,"end_index":246,"total_elevation_gain":0,"average_speed":3.44,"max_speed":4.613,"average_cadence":80.9,"device_watts":false,"average_heartrate":164.9,"max_heartrate":174.0,"lap_index":3,"split":3,"pace_zone":0}],"best_efforts":[],"photos":{"primary":null,"count":0},"stats_visibility":[{"type":"heart_rate","visibility":"everyone"},{"type":"pace","visibility":"everyone"},{"type":"power","visibility":"everyone"},{"type":"speed","visibility":"everyone"},{"type":"calories","visibility":"everyone"}],"hide_from_home":false,"device_name":"Garmin
+        Forerunner 935","embed_token":"7a6a1833b62e98ee9d7f673ddc8d83f9f4e6ce6c","similar_activities":{"effort_count":0,"average_speed":0,"min_average_speed":0,"mid_average_speed":0,"max_average_speed":0,"pr_rank":null,"frequency_milestone":null,"trend":{"speeds":[],"current_activity_index":null,"min_speed":0,"mid_speed":0,"max_speed":0,"direction":0},"resource_state":2},"available_zones":[]}'
+  recorded_at: Thu, 19 Jan 2023 19:08:50 GMT
 recorded_with: VCR 6.1.0

@@ -68,7 +68,7 @@ RSpec.describe Activity, type: :model do
   describe "Instance Methods" do 
     let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json')}
     let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json')}
-    let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_price.json') }
+    let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_buddy.json') }
 
     describe "#get_attributes" do 
       it "should update the distance, calories, and num_drinks attributes for the instance of activity" do 
@@ -89,7 +89,7 @@ RSpec.describe Activity, type: :model do
           .with(headers: {"Authorization" => "Bearer #{user_token}"})
           .to_return(status: 200, body: response_body_2)
 
-        stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+        stub_request(:post, "https://www.gasbuddy.com/gaspricemap/county?lat=39.059811&lng=-105.311104&usa=true")
           .to_return(status: 200, body: response_body_3)
         
         activity = Activity.new(activity_params)

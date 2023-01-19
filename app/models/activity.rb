@@ -35,8 +35,8 @@ class Activity < ApplicationRecord
   end
 
   def update_from_gas_service
-    abbreviation = StateSymbol.convert(user.state)
-    gas_price = gas_service.get_gas_price(abbreviation)
+    lat_long_array = StateLatLong.convert(user.state)
+    gas_price = gas_service.get_gas_price(lat_long_array)
     # 22 is average mpg of US car
     self.dollars_saved = ((self.distance / 22) * gas_price).round(2) 
     self.lbs_carbon_saved = (distance * 0.9).round(2)

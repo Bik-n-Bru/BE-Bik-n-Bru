@@ -1,16 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.collectapi.com/gasPrice/stateUsaPrice?state=FL
+    method: post
+    uri: https://www.gasbuddy.com/gaspricemap/county?lat=27.766279&lng=-81.686783&usa=true
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
-      Authorization:
-      - apikey 7sRia4D4j8Y3aU5s9VD4MM:2q6Ifm2XpnsobKgIPrA3sc
       User-Agent:
       - Faraday v2.7.2
+      Content-Length:
+      - '0'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,56 +21,35 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 11 Jan 2023 01:06:26 GMT
+      - Thu, 19 Jan 2023 19:03:54 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '185'
       Connection:
       - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      X-Powered-By:
-      - Express
-      Etag:
-      - W/"e73-UwhgTGYc5+U0luv0ycMTcBgDtZM"
+      Cf-Ray:
+      - 78c1d5448def291b-DEN
+      Cache-Control:
+      - private
+      Set-Cookie:
+      - ASP.NET_SessionId=2hce5lltptvweyftf0cgtmtj; path=/; HttpOnly; SameSite=Lax
+      - datadome=7fjnSWy-bRRf3MRpk_-RCThc6nV3W12uXV~9MC8aGe_02HAaQBuu8GmaIjJ7Ln7xhc2QWRfcdwsGImd8juzKDalrnPxLtE1ZxCARpnkqglSiUz9k79bQqXzryTunGBtf;
+        Max-Age=31536000; Domain=.gasbuddy.com; Path=/; Secure; SameSite=Lax
       Vary:
       - Accept-Encoding
       Cf-Cache-Status:
       - DYNAMIC
-      Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=4kPDHCAIRY6FNXPcJLE83OxRJMqGPCNPvC4S0wukeWo%2F9lFjIVb5X3AsYjYyVKwpigl51ZgAnTUGntLNPmizIaQW82xHeowtQ9g71HfryNUDH2UhVZXLjmtu1d%2B9OIl1grTvT28%3D"}],"group":"cf-nel","max_age":604800}'
-      Nel:
-      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - SAMEORIGIN
-      Referrer-Policy:
-      - strict-origin
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains; preload
+      Accept-Ch:
+      - Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Platform,Sec-CH-UA-Arch,Sec-CH-UA-Full-Version-List,Sec-CH-UA-Model,Sec-CH-Device-Memory
+      X-Aspnetmvc-Version:
+      - '5.2'
+      X-Datadome:
+      - protected
       Server:
       - cloudflare
-      Cf-Ray:
-      - 7879bfec9e8ce9c1-DFW
     body:
       encoding: ASCII-8BIT
-      string: '{"success":true,"result":{"state":{"currency":"usd","name":"Florida","lowerName":"florida","gasoline":"3.286","midGrade":"3.671","premium":"3.998","diesel":"4.774"},"cities":[{"currency":"usd","gasoline":"3.268","midGrade":"3.659","premium":"3.977","diesel":"4.786","name":"Bradenton-Sarasota-Venice","lowerName":"bradenton-sarasota-venice"},{"currency":"usd","gasoline":"3.112","midGrade":"3.422","premium":"3.788","diesel":"4.446","name":"Crestview-Fort
-        Walton Beach","lowerName":"crestview-fort walton beach"},{"currency":"usd","gasoline":"3.269","midGrade":"3.644","premium":"3.982","diesel":"4.799","name":"Daytona
-        Beach","lowerName":"daytona beach"},{"currency":"usd","gasoline":"3.324","midGrade":"3.734","premium":"4.065","diesel":"4.807","name":"Fort
-        Lauderdale","lowerName":"fort lauderdale"},{"currency":"usd","gasoline":"3.250","midGrade":"3.643","premium":"3.943","diesel":"4.708","name":"Fort
-        Myers-Cape Coral","lowerName":"fort myers-cape coral"},{"currency":"usd","gasoline":"3.338","midGrade":"3.700","premium":"4.085","diesel":"4.918","name":"Gainesville","lowerName":"gainesville"},{"currency":"usd","gasoline":"3.309","midGrade":"3.673","premium":"3.989","diesel":"4.852","name":"Homosassa
-        Springs","lowerName":"homosassa springs"},{"currency":"usd","gasoline":"3.264","midGrade":"3.631","premium":"4.002","diesel":"4.748","name":"Jacksonville","lowerName":"jacksonville"},{"currency":"usd","gasoline":"3.303","midGrade":"3.678","premium":"4.008","diesel":"4.815","name":"Lakeland-Winter
-        Haven","lowerName":"lakeland-winter haven"},{"currency":"usd","gasoline":"3.256","midGrade":"3.659","premium":"4.000","diesel":"4.813","name":"Melbourne-Titusville","lowerName":"melbourne-titusville"},{"currency":"usd","gasoline":"3.322","midGrade":"3.675","premium":"3.971","diesel":"4.748","name":"Miami","lowerName":"miami"},{"currency":"usd","gasoline":"3.326","midGrade":"3.735","premium":"4.054","diesel":"4.835","name":"Naples","lowerName":"naples"},{"currency":"usd","gasoline":"3.300","midGrade":"3.661","premium":"4.037","diesel":"4.789","name":"Ocala","lowerName":"ocala"},{"currency":"usd","gasoline":"3.259","midGrade":"3.631","premium":"3.921","diesel":"4.822","name":"Orlando","lowerName":"orlando"},{"currency":"usd","gasoline":"3.107","midGrade":"3.453","premium":"3.791","diesel":"4.411","name":"Panama
-        City","lowerName":"panama city"},{"currency":"usd","gasoline":"3.118","midGrade":"3.473","premium":"3.809","diesel":"4.420","name":"Pensacola","lowerName":"pensacola"},{"currency":"usd","gasoline":"3.327","midGrade":"3.742","premium":"4.074","diesel":"4.871","name":"Port
-        St. Lucie","lowerName":"port st. lucie"},{"currency":"usd","gasoline":"3.240","midGrade":"3.667","premium":"3.990","diesel":"4.735","name":"Punta
-        Gorda","lowerName":"punta gorda"},{"currency":"usd","gasoline":"3.351","midGrade":"3.692","premium":"4.077","diesel":"4.826","name":"Sebastian-Vero
-        Beach","lowerName":"sebastian-vero beach"},{"currency":"usd","gasoline":"3.306","midGrade":"3.680","premium":"3.974","diesel":"4.827","name":"Sebring","lowerName":"sebring"},{"currency":"usd","gasoline":"3.287","midGrade":"3.620","premium":"4.030","diesel":"4.712","name":"Tallahassee","lowerName":"tallahassee"},{"currency":"usd","gasoline":"3.284","midGrade":"3.667","premium":"3.984","diesel":"4.771","name":"Tampa-St.
-        Petersburg-Clearwater","lowerName":"tampa-st. petersburg-clearwater"},{"currency":"usd","gasoline":"3.290","midGrade":"3.710","premium":"4.016","diesel":"4.720","name":"The
-        Villages","lowerName":"the villages"},{"currency":"usd","gasoline":"3.457","midGrade":"3.914","premium":"4.229","diesel":"4.901","name":"West
-        Palm Beach-Boca Raton","lowerName":"west palm beach-boca raton"}]}}'
-  recorded_at: Wed, 11 Jan 2023 01:06:26 GMT
+      string: '[{"Id":2966,"Name":"Polk","State":"FL","Price":3.370,"Distance":15.60}]'
+  recorded_at: Thu, 19 Jan 2023 19:03:54 GMT
 recorded_with: VCR 6.1.0

@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 06 Jan 2023 23:10:38 GMT
+      - Thu, 19 Jan 2023 18:55:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -45,9 +45,9 @@ http_interactions:
       Etag:
       - W/"9e77f7f0efcbcfba56c828ff3046191b"
       X-Request-Id:
-      - 6f1eb780-00e9-4498-9977-2d0572e1953d
+      - 0bda48f3-8fd8-45c8-b592-4206cb11a7fc
       X-Runtime:
-      - '0.041306'
+      - '0.031122'
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       Via:
@@ -55,15 +55,15 @@ http_interactions:
       Cf-Cache-Status:
       - HIT
       Age:
-      - '18748'
+      - '172'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=6cDUxfHTYL9%2B0gWnZlRiiF49kOVcQK6UPOub5DrbdIktpm%2BHvmjQymjgU5rPV2HTijcOuHkkN8Kp2smJTMjBp1hnlSqaXmiMa2PaSVjja1XjvxCwqaLAPMj0VUM3YAXWKo3VpZSQGe8%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=AtMeYTaKnvxpQVMi83AKK4JLpj5EPXA1giYuSdMRNuwxcq4BmtVH8sxtZv1W9EyP9uDbLchwDBV4zNeec%2Fczt98Yb3EX%2Bu6A8lKOAnuglv%2Bwp61iYtyaq7NtnpOay2mVVgmiO43xPuw%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 785820cfce521f58-DEN
+      - 78c1c874aa771f3a-DEN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -177,5 +177,5 @@ http_interactions:
         States","longitude":"-105.0243557","latitude":"39.7474051","phone":"3032847893","website_url":"http://www.littlemachinebeer.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"long-table-brewing-denver","name":"Long
         Table Brewing","brewery_type":"micro","street":"2895 Fairfax St","address_2":null,"address_3":null,"city":"Denver","state":"Colorado","county_province":null,"postal_code":"80207-2748","country":"United
         States","longitude":"-104.928343","latitude":"39.75818024","phone":null,"website_url":null,"updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"}]'
-  recorded_at: Fri, 06 Jan 2023 23:10:38 GMT
+  recorded_at: Thu, 19 Jan 2023 18:55:09 GMT
 recorded_with: VCR 6.1.0

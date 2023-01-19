@@ -10,32 +10,13 @@ RSpec.describe GasService do
       end
     end
 
-    describe "#get_url" do
-      it "returns a parsed json response for the given url endpoint" do 
-        VCR.use_cassette('gas_get_url') do 
-          parsed = service.get_url('/gasPrice/stateUsaPrice?state=HI')
-
-          expect(parsed).to be_a(Hash)
-
-          expect(parsed).to have_key(:result)
-          expect(parsed[:result]).to be_a(Hash)
-
-          expect(parsed[:result]).to have_key(:state)
-          expect(parsed[:result][:state]).to be_a(Hash)
-
-          expect(parsed[:result][:state]).to have_key(:gasoline)
-          expect(parsed[:result][:state][:gasoline]).to be_a(String)
-        end
-      end
-    end
-
     describe "#get_gas_price" do 
       it "returns a float of gas price for a given state" do 
         VCR.use_cassette('get_gas_price') do 
-          gas_price = service.get_gas_price("CO")
+          gas_price = service.get_gas_price(['39.059811', '-105.311104'])
 
           expect(gas_price).to be_a(Float)
-          expect(gas_price).to eq(3.079)
+          expect(gas_price).to eq(3.478)
         end
       end
     end
