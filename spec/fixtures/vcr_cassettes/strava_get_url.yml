@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer 96c401bc3baf0c0d272c30c473cf06bded9ad3ba
+      - Bearer b346fcd076be56c02c30d9c7f511b93605126346
       User-Agent:
       - Faraday v2.7.2
       Accept-Encoding:
@@ -27,12 +27,12 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Sat, 07 Jan 2023 19:25:50 GMT
+      - Thu, 19 Jan 2023 19:08:50 GMT
       Via:
-      - 1.1 linkerd, 1.1 linkerd, 1.1 badefad2d1fb92bb4620df1ce11d8c92.cloudfront.net
+      - 1.1 linkerd, 1.1 linkerd, 1.1 1c13683c7de319f25e08f83861fc6dc2.cloudfront.net
         (CloudFront)
       Etag:
-      - W/"a558209f3bd756a3a7f72085773046f4"
+      - W/"74992ad9b42a6afaab2ab7814e4d5ef2"
       Vary:
       - Origin
       Server:
@@ -40,7 +40,7 @@ http_interactions:
       Status:
       - 200 OK
       X-Request-Id:
-      - 2b245ae0-3ebb-4fcf-a4bd-92ccf6166001
+      - eed0166c-3d76-43ab-bd1b-ae29220e6165
       Cache-Control:
       - max-age=0, private, must-revalidate
       Referrer-Policy:
@@ -52,7 +52,7 @@ http_interactions:
       X-Ratelimit-Limit:
       - '100,1000'
       X-Ratelimit-Usage:
-      - '1,19'
+      - '3,3'
       X-Download-Options:
       - noopen
       X-Content-Type-Options:
@@ -64,9 +64,10 @@ http_interactions:
       X-Amz-Cf-Pop:
       - DEN52-P2
       X-Amz-Cf-Id:
-      - Y4PnLj54sOPwQ6FPrUn34abaMtaIvCfkIONIQvHSAMds1pdoz73HFg==
+      - g1T7SYG71k-CqRZ0znnjPHz4sKKGzS4sFshNw0sK83GdIv6k7s2BrA==
     body:
       encoding: ASCII-8BIT
-      string: '{"id":16804102,"username":null,"resource_state":2,"firstname":"Lee","lastname":"Saville","bio":"","city":"","state":"","country":null,"sex":"M","premium":false,"summit":false,"created_at":"2016-08-07T22:35:28Z","updated_at":"2023-01-07T18:51:41Z","badge_type_id":0,"weight":0.0,"profile_medium":"https://lh3.googleusercontent.com/-zh1AiYBBMcM/AAAAAAAAAAI/AAAAAAAAHFU/sbtPGCNB1Io/photo.jpg","profile":"https://lh3.googleusercontent.com/-zh1AiYBBMcM/AAAAAAAAAAI/AAAAAAAAHFU/sbtPGCNB1Io/photo.jpg","friend":null,"follower":null}'
-  recorded_at: Sat, 07 Jan 2023 19:25:50 GMT
+      string: '{"id":111365515,"username":null,"resource_state":2,"firstname":"Amanda","lastname":"Ross","bio":null,"city":"Denver","state":"Colorado","country":"United
+        States","sex":"F","premium":false,"summit":false,"created_at":"2022-12-05T23:22:56Z","updated_at":"2023-01-11T12:23:20Z","badge_type_id":0,"weight":0.0,"profile_medium":"https://dgalywyr863hv.cloudfront.net/pictures/athletes/111365515/26073439/1/medium.jpg","profile":"https://dgalywyr863hv.cloudfront.net/pictures/athletes/111365515/26073439/1/large.jpg","friend":null,"follower":null}'
+  recorded_at: Thu, 19 Jan 2023 19:08:50 GMT
 recorded_with: VCR 6.1.0

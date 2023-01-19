@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "Activity API" do
   let(:response_body_1) { File.open('./spec/fixtures/sample_json/strava_activities.json') }
   let(:response_body_2) { File.open('./spec/fixtures/sample_json/strava_activity.json') }
-  let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_price.json') }
+  let(:response_body_3) { File.open('./spec/fixtures/sample_json/gas_buddy.json') }
 
   it "can create an activity" do
     user = create(:user, state: "Colorado")
@@ -18,7 +18,7 @@ describe "Activity API" do
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
     
-    stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+    stub_request(:post, "https://www.gasbuddy.com/gaspricemap/county?lat=39.059811&lng=-105.311104&usa=true")
       .to_return(status: 200, body: response_body_3)
 
     activity_params = {
@@ -60,7 +60,7 @@ describe "Activity API" do
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
 
-    stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+    stub_request(:post, "https://www.gasbuddy.com/gaspricemap/county?lat=39.059811&lng=-105.311104&usa=true")
       .to_return(status: 200, body: response_body_3)
 
     activity_params = {
@@ -95,7 +95,7 @@ describe "Activity API" do
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: "[]")
 
-    stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+    stub_request(:post, "https://www.gasbuddy.com/gaspricemap/county?lat=39.059811&lng=-105.311104&usa=true")
       .to_return(status: 200, body: response_body_3)
 
     activity_params = {
@@ -130,7 +130,7 @@ describe "Activity API" do
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
     
-      stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+      stub_request(:post, "https://www.gasbuddy.com/gaspricemap/county?lat=39.059811&lng=-105.311104&usa=true")
       .to_return(status: 200, body: response_body_3)
 
     activity_params = {
@@ -171,7 +171,7 @@ describe "Activity API" do
       .with(headers: {"Authorization" => "Bearer #{user_token}"})
       .to_return(status: 200, body: response_body_2)
     
-      stub_request(:get, "https://api.collectapi.com/gasPrice/stateUsaPrice?state=CO")
+      stub_request(:post, "https://www.gasbuddy.com/gaspricemap/county?lat=39.059811&lng=-105.311104&usa=true")
       .to_return(status: 200, body: response_body_3)
 
       activity_params = {

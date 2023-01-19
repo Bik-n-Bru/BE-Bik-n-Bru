@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe StravaService do 
   describe "Instance Methods" do 
     let(:service) { StravaService.new }
-    let(:user) { create(:user, token: '96c401bc3baf0c0d272c30c473cf06bded9ad3ba')}
+    let(:user) { create(:user, token: ENV['strava_user_token'])}
     
     describe "#conn" do 
       it "creates a Faraday connection to www.strava.com" do 
@@ -18,8 +18,8 @@ RSpec.describe StravaService do
           activity = service.get_latest_activity(user.token)
 
           expect(activity).to be_a(StravaActivity)
-          expect(activity.calories).to eq(277.0)
-          expect(activity.distance_in_meters).to eq(5016.0)
+          expect(activity.calories).to eq(205.0)
+          expect(activity.distance_in_meters).to eq(4502.6)
         end
       end
     end

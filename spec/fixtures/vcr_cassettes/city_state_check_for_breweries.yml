@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 08 Jan 2023 00:16:58 GMT
+      - Thu, 19 Jan 2023 18:55:16 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -45,23 +45,25 @@ http_interactions:
       Etag:
       - W/"511cee0164fdcdff0a4e67601fa36d09"
       X-Request-Id:
-      - a0412925-3452-477b-8886-43b60fe2fe27
+      - 8483da20-f66c-445c-af6e-d85ecf940d5f
       X-Runtime:
-      - '0.044871'
+      - '0.024972'
       Strict-Transport-Security:
       - max-age=63072000; includeSubDomains
       Via:
       - 1.1 vegur
       Cf-Cache-Status:
-      - MISS
+      - HIT
+      Age:
+      - '174'
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=69XWAGWZlxzAzvX8XnLp4xLEfrb6UEliUfZRTeTPKbo%2B%2F5572bWDCa5vQoiyyG7pawWGAf%2B%2FDvTBZHfBrhNVDyuQgeq6InyyrQfjjQNTdq9HRt0RMRQEiQRJZOg12ag9xYEoVXnLXtc%3D"}],"group":"cf-nel","max_age":604800}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=5Ljzrf7FllhtmgwWBPl4e4rEBzAponarEYt18itqnesnBsK4Cw7IhwABNZZDutiyKpoAuoVXd9ngDC%2BfEW8mkAJjiO6%2BO6hQVC2hhM4UOux%2FIH0FVRd32BO9G0Inn0SQOVUa6E0dEvk%3D"}],"group":"cf-nel","max_age":604800}'
       Nel:
       - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
       Server:
       - cloudflare
       Cf-Ray:
-      - 7860bf5c182d276f-DEN
+      - 78c1c89e8ce71f34-DEN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -123,5 +125,5 @@ http_interactions:
         States","longitude":"-121.33142768075643","latitude":"44.05140622110908","phone":"5414081525","website_url":"http://www.thealeapothecary.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"},{"id":"worthy-brewing-company-bend","name":"Worthy
         Brewing Company","brewery_type":"micro","street":"495 NE Bellevue Dr","address_2":null,"address_3":null,"city":"Bend","state":"Oregon","county_province":null,"postal_code":"97701-7412","country":"United
         States","longitude":"-121.2603915","latitude":"44.0553542","phone":"5416394772","website_url":"http://www.worthybrewing.com","updated_at":"2023-01-04T04:46:02.393Z","created_at":"2023-01-04T04:46:02.393Z"}]'
-  recorded_at: Sun, 08 Jan 2023 00:16:58 GMT
+  recorded_at: Thu, 19 Jan 2023 18:55:16 GMT
 recorded_with: VCR 6.1.0
