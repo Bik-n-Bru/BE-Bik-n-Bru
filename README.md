@@ -13,7 +13,7 @@ Visit our [Bīk-n-Brü Site](https://bik-n-bru.herokuapp.com/)! Or check out the
 ## Table of Contents
 - [Database Schema](#database-schema)
 - [Tech & Tools Used](#tech-and-tools)
-- [Developer Setup](#setup)
+- [Developer Setup](#developer-setup)
 - [Endpoints](#endpoints)
 - [Contributors](#contributors)
 
@@ -515,11 +515,11 @@ Default host is <code>http://localhost:3000</code>
     <td><img src="https://avatars.githubusercontent.com/u/102780642?s=400&u=caf69a9ee867dd111a5c160cf96d6a8ca33add7c&v=4" width=auto height=110px></td>
   </tr>
   <tr>
-    <td><strong>Amanda Ross</strong></td>
-    <td><strong>Yuji Kosakowski</strong></td>
-    <td><strong>Rich Kaht</strong></td>
-    <td><strong>Gabe Nuñez</strong></td>
-    <td><strong>Annie Pulzone</strong></td>
+    <td><div align="center"><strong>Amanda Ross</strong></div></td>
+    <td><div align="center"><strong>Yuji Kosakowski</strong></div></td>
+    <td><div align="center"><strong>Rich Kaht</strong></div></td>
+    <td><div align="center"><strong>Gabe Nuñez</strong></div></td>
+    <td><div align="center"><strong>Annie Pulzone</strong></div></td>
   </tr>
   <tr>
     <td>
@@ -534,8 +534,8 @@ Default host is <code>http://localhost:3000</code>
       <div align="center"><a href="https://github.com/Freeing3092">GitHub</a></div>
     </td>
     <td>
-      <div align="center"><a href="https://github.com/MisterJackpots">GitHub</a><br>
-      <a href="https://www.linkedin.com/in/gabriel-c-nunez/">LinkedIn</a></div>
+      <div align="center"><a href="https://github.com/gabrielcnunez">GitHub</a><br>
+      <a href="https://www.linkedin.com/in/gabriel-nunez-az/">LinkedIn</a></div>
     </td>
     <td>
       <div align="center"><a href="https://github.com/ajpulzone">GitHub </a><br>
@@ -550,7 +550,7 @@ Default host is <code>http://localhost:3000</code>
     <td><img src="https://avatars.githubusercontent.com/u/3011748?v=4" width=110px height=auto></td>
   </tr>
   <tr>
-    <td><strong>Mike Dao</strong></td>
+    <td><div align="center"><strong>Mike Dao</strong></div></td>
   </tr>
   <tr>
     <td>
